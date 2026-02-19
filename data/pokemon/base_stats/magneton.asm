@@ -1,11 +1,11 @@
 	db MAGNETON ; 082
 
-	db  50,  60,  95,  70, 120,  70
+	db  70,  70,  115,  60, 130,  90
 	;   hp  atk  def  spd  sat  sdf
 
 	db ELECTRIC, STEEL ; type
 	db 60 ; catch rate
-	db 161 ; base exp
+	db 211 ; base exp
 	db NO_ITEM, METAL_COAT ; items
 	db GENDER_UNKNOWN ; gender ratio
 	db 100 ; unknown 1

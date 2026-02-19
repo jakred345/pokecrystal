@@ -1,11 +1,11 @@
 	db PORYGON2 ; 233
 
-	db  85,  80,  90,  60, 105,  95
+	db  85,  80,  70,  90, 135,  75
 	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, NORMAL ; type
 	db 45 ; catch rate
-	db 180 ; base exp
+	db 185 ; base exp
 	db NO_ITEM, NO_ITEM ; items
 	db GENDER_UNKNOWN ; gender ratio
 	db 100 ; unknown 1

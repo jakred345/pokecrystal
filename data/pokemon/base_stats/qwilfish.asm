@@ -1,11 +1,11 @@
 	db QWILFISH ; 211
 
-	db  65,  95,  75,  85,  55,  55
+	db  85,  115,  95,  85,  65,  65
 	;   hp  atk  def  spd  sat  sdf
 
-	db WATER, POISON ; type
+	db DARK, POISON ; type
 	db 45 ; catch rate
-	db 100 ; base exp
+	db 179 ; base exp
 	db NO_ITEM, NO_ITEM ; items
 	db GENDER_F50 ; gender ratio
 	db 100 ; unknown 1

@@ -1555,6 +1555,7 @@ TangelaEvosAttacks:
 	db 25, BIND
 	db 31, MEGA_DRAIN
 	db 34, STUN_SPORE
+	db 37, ROCK_SLIDE
 	db 40, SLAM
 	db 46, GROWTH
 	db 0 ; no more level-up moves
@@ -1706,6 +1707,7 @@ ElectabuzzEvosAttacks:
 	db 17, LIGHT_SCREEN
 	db 25, SWIFT
 	db 36, SCREECH
+	db 41, ROCK_SLIDE
 	db 47, THUNDERBOLT
 	db 58, THUNDER
 	db 0 ; no more level-up moves
@@ -1721,6 +1723,7 @@ MagmarEvosAttacks:
 	db 19, FIRE_PUNCH
 	db 25, SMOKESCREEN
 	db 33, SUNNY_DAY
+	db 37, ROCK_SLIDE
 	db 41, FLAMETHROWER
 	db 49, CONFUSE_RAY
 	db 57, FIRE_BLAST
@@ -2826,12 +2829,14 @@ QwilfishEvosAttacks:
 	db 1, SPIKES
 	db 1, TACKLE
 	db 1, POISON_STING
+	db 8, BITE
 	db 10, HARDEN
 	db 10, MINIMIZE
 	db 19, WATER_GUN
 	db 28, PIN_MISSILE
 	db 37, TAKE_DOWN
 	db 46, HYDRO_PUMP
+	db 48, CRUNCH
 	db 0 ; no more level-up moves
 
 ScizorEvosAttacks:
