@@ -26,7 +26,7 @@ FishGroups:
 
 .Shore_Old:
 	db  70 percent + 1, MAGIKARP,   10
-	db  85 percent + 1, MAGIKARP,   10
+	db  85 percent + 1, HORSEA,   10
 	db 100 percent,     KRABBY,     10
 .Shore_Good:
 	db  35 percent,     MAGIKARP,   20
@@ -41,8 +41,8 @@ FishGroups:
 
 .Ocean_Old:
 	db  70 percent + 1, MAGIKARP,   10
-	db  85 percent + 1, MAGIKARP,   10
-	db 100 percent,     TENTACOOL,  10
+	db  85 percent + 1, TENTACOOL,   10
+	db 100 percent,     SEEL,  10
 .Ocean_Good:
 	db  35 percent,     MAGIKARP,   20
 	db  70 percent,     TENTACOOL,  20
@@ -56,8 +56,8 @@ FishGroups:
 
 .Lake_Old:
 	db  70 percent + 1, MAGIKARP,   10
-	db  85 percent + 1, MAGIKARP,   10
-	db 100 percent,     GOLDEEN,    10
+	db  85 percent + 1, GOLDEEN,   10
+	db 100 percent,     DRATINI,    10
 .Lake_Good:
 	db  35 percent,     MAGIKARP,   20
 	db  70 percent,     GOLDEEN,    20
@@ -71,7 +71,7 @@ FishGroups:
 
 .Pond_Old:
 	db  70 percent + 1, MAGIKARP,   10
-	db  85 percent + 1, MAGIKARP,   10
+	db  85 percent + 1, REMORAID,   10
 	db 100 percent,     POLIWAG,    10
 .Pond_Good:
 	db  35 percent,     MAGIKARP,   20

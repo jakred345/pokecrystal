@@ -149,24 +149,24 @@ KantoGrassWildMons:
 	db 22, RATICATE
 	db 24, GOLBAT
 	db 21, SLOWPOKE
-	db 20, RATTATA
-	db 23, SLOWPOKE
+	db 20, LARVITAR
+	db 23, AERODACTYL
 	db 23, SLOWPOKE
 	; day
 	db 22, ZUBAT
 	db 22, RATICATE
 	db 24, GOLBAT
 	db 21, SLOWPOKE
-	db 20, RATTATA
-	db 23, SLOWPOKE
+	db 20, LARVITAR
+	db 23, AERODACTYL
 	db 23, SLOWPOKE
 	; nite
 	db 22, ZUBAT
 	db 22, RATICATE
 	db 24, GOLBAT
 	db 21, SLOWPOKE
-	db 20, RATTATA
-	db 23, SLOWPOKE
+	db 20, LARVITAR
+	db 23, AERODACTYL
 	db 23, SLOWPOKE
 	end_grass_wildmons
 

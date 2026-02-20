@@ -27,7 +27,7 @@ JohtoWaterWildMons:
 	db 4 percent ; encounter rate
 	db 15, TENTACOOL
 	db 20, QUAGSIRE
-	db 20, TENTACRUEL
+	db 20, LAPRAS
 	end_water_wildmons
 
 	def_water_wildmons SLOWPOKE_WELL_B1F
@@ -181,7 +181,7 @@ JohtoWaterWildMons:
 	db 4 percent ; encounter rate
 	db 20, GOLDEEN
 	db 15, GOLDEEN
-	db 20, SEAKING
+	db 20, QWILFISH
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_43
