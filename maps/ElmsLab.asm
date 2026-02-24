@@ -461,6 +461,7 @@ AideScript_WalkPotion1:
 	turnobject PLAYER, DOWN
 	scall AideScript_GivePotion
 	scall AideScript_GivePocketPC
++	scall AideScript_GivePocketDeleter
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksLeft1
 	end
 
@@ -469,6 +470,7 @@ AideScript_WalkPotion2:
 	turnobject PLAYER, DOWN
 	scall AideScript_GivePotion
 	scall AideScript_GivePocketPC
++	scall AideScript_GivePocketDeleter
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksLeft2
 	end
 
@@ -488,6 +490,16 @@ AideScript_GivePocketPC:
 	promptbutton
 	giveitem POCKET_PC
 	writetext AideText_PocketPCInfoText
+	waitbutton
+	closetext
+	end
+
+AideScript_GivePocketDeleter:
+	opentext
+	writetext AideText_GetPocketDeleterText
+	promptbutton
+	giveitem PCKT_DELETE
+	writetext AideText_PocketDeleterInfoText
 	waitbutton
 	closetext
 	setscene SCENE_ELMSLAB_NOTHING
@@ -1390,6 +1402,20 @@ AideText_GetPocketPCText:
 AideText_PocketPCInfoText:
 	text "Use this to manage"
 	line "your party."
+	done
+
+AideText_GetPocketDeleterText:
+	text "I also have this"
+	line "as well."
+
+	para "It's a Pocket"
+	line "Deleter!"
+	done
+	
+AideText_PocketDeleterInfoText:
+	text "Use this to delete"
+	line "your party's"
+	line "moves!"
 	done
 
 ElmsLab_MapEvents:

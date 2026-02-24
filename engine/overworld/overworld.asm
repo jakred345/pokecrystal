@@ -659,6 +659,39 @@ LoadEmote::
 	call GetEmote2bpp
 	ret
 
+PocketDeleterFunction:
+	call .LoadPocketDeleter
+	and $7f
+	ld [wFieldMoveSucceeded], a
+	ret
+	
+.LoadPocketDeleter:
+	ld a, [wPlayerState]
+	ld hl, Script_LoadPocketDeleter
+	ld de, Script_LoadPocketDeleter_Register
+	call .CheckIfRegistered
+	call QueueScript
+	ld a, TRUE
+	ret
+	
+.CheckIfRegistered:
+	ld a, [wUsingItemWithSelect]
+	and a
+	ret z
+	ld h, d
+	ld l, e
+	ret
+
+Script_LoadPocketDeleter:
+	reloadmappart
+	special UpdateTimePals
+Script_LoadPocketDeleter_Register:
+	opentext
+	special MoveDeletion
+	closetext
+	reloadmappart
+	end
+
 INCLUDE "data/sprites/emotes.asm"
 
 INCLUDE "data/sprites/sprite_mons.asm"
