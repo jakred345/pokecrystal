@@ -9,6 +9,7 @@ Marts:
 	dw MartGoldenrod2F1
 	dw MartGoldenrod2F2
 	dw MartGoldenrod3F
+	dw MartGoldenrod3F2
 	dw MartGoldenrod4F
 	dw MartGoldenrod5F1
 	dw MartGoldenrod5F2
@@ -91,7 +92,7 @@ MartCianwood:
 	db -1 ; end
 
 MartGoldenrod2F1:
-	db 7 ; # items
+	db 13 ; # items
 	db POTION
 	db SUPER_POTION
 	db ANTIDOTE
@@ -99,6 +100,12 @@ MartGoldenrod2F1:
 	db AWAKENING
 	db BURN_HEAL
 	db ICE_HEAL
+	db PSNCUREBERRY
+	db PRZCUREBERRY
+	db BITTER_BERRY
+	db MINT_BERRY
+	db MIRACLEBERRY
+	db GOLD_BERRY
 	db -1 ; end
 
 MartGoldenrod2F2:
@@ -114,7 +121,7 @@ MartGoldenrod2F2:
 	db -1 ; end
 
 MartGoldenrod3F:
-	db 7 ; # items
+	db 9 ; # items
 	db X_SPEED
 	db X_SPECIAL
 	db X_DEFEND
@@ -122,15 +129,29 @@ MartGoldenrod3F:
 	db DIRE_HIT
 	db GUARD_SPEC
 	db X_ACCURACY
+	db EXP_SHARE
+	db LUCKY_EGG
+	db -1 ; end
+
+MartGoldenrod3F2:
+	db 6 ; # items
+	db FIRE_STONE
+	db THUNDERSTONE
+	db WATER_STONE
+	db LEAF_STONE
+	db MOON_STONE
+	db SUN_STONE
 	db -1 ; end
 
 MartGoldenrod4F:
-	db 5 ; # items
+	db 7 ; # items
 	db PROTEIN
 	db IRON
 	db CARBOS
 	db CALCIUM
 	db HP_UP
+	db PP_UP
+	db RARE_CANDY
 	db -1 ; end
 
 MartGoldenrod5F1:
@@ -227,8 +248,9 @@ MartBlackthorn:
 	db -1 ; end
 
 MartViridian:
-	db 9 ; # items
+	db 10 ; # items
 	db ULTRA_BALL
+	db MASTER_BALL
 	db HYPER_POTION
 	db FULL_HEAL
 	db REVIVE
