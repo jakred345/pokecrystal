@@ -461,6 +461,7 @@ AideScript_WalkPotion1:
 	turnobject PLAYER, DOWN
 	scall AideScript_GivePotion
 	scall AideScript_GivePocketPC
+	scall AideScript_GivePocketReminder
 +	scall AideScript_GivePocketDeleter
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksLeft1
 	end
@@ -470,6 +471,7 @@ AideScript_WalkPotion2:
 	turnobject PLAYER, DOWN
 	scall AideScript_GivePotion
 	scall AideScript_GivePocketPC
+	scall AideScript_GivePocketReminder
 +	scall AideScript_GivePocketDeleter
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksLeft2
 	end
@@ -490,6 +492,16 @@ AideScript_GivePocketPC:
 	promptbutton
 	giveitem POCKET_PC
 	writetext AideText_PocketPCInfoText
+	waitbutton
+	closetext
+	end
+
+AideScript_GivePocketReminder:
+	opentext
+	writetext AideText_GetPocketReminderText
+	promptbutton
+	giveitem PCKT_REMIND
+	writetext AideText_PocketReminderInfoText
 	waitbutton
 	closetext
 	end
@@ -1402,6 +1414,20 @@ AideText_GetPocketPCText:
 AideText_PocketPCInfoText:
 	text "Use this to manage"
 	line "your party."
+	done
+
+AideText_GetPocketReminderText:
+	text "One last thing!"
+	line "I have this."
+
+	para "It's a Pocket"
+	line "Reminder!"
+	done
+	
+AideText_PocketReminderInfoText:
+	text "Use this to manage"
+	line "your party's"
+	line "moves!"
 	done
 
 AideText_GetPocketDeleterText:

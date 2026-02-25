@@ -44,7 +44,7 @@ ItemNames::
 	li "SUPER REPEL"
 	li "MAX REPEL"
 	li "DIRE HIT"
-	li "TERU-SAMA"
+	li "PCKT RMNDR"
 	li "FRESH WATER"
 	li "SODA POP"
 	li "LEMONADE"
