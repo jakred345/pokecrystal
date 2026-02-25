@@ -14,16 +14,8 @@ TrainerHouseB1FNoopScene:
 TrainerHouseReceptionistScript:
 	turnobject PLAYER, UP
 	opentext
-	checkflag ENGINE_FOUGHT_IN_TRAINER_HALL_TODAY
-	iftrue .FoughtTooManyTimes
 	writetext TrainerHouseB1FIntroText
 	promptbutton
-	special TrainerHouse
-	iffalse .GetCal3Name
-	gettrainername STRING_BUFFER_3, CAL, CAL2
-	sjump .GotName
-
-.GetCal3Name:
 	gettrainername STRING_BUFFER_3, CAL, CAL3
 .GotName:
 	writetext TrainerHouseB1FYourOpponentIsText
@@ -40,15 +32,6 @@ TrainerHouseReceptionistScript:
 	writetext TrainerHouseB1FCalBeforeText
 	waitbutton
 	closetext
-	special TrainerHouse
-	iffalse .NoSpecialBattle
-	winlosstext TrainerHouseB1FCalBeatenText, 0
-	setlasttalked TRAINERHOUSEB1F_CHRIS
-	loadtrainer CAL, CAL2
-	startbattle
-	reloadmapafterbattle
-	iffalse .End
-.NoSpecialBattle:
 	winlosstext TrainerHouseB1FCalBeatenText, 0
 	setlasttalked TRAINERHOUSEB1F_CHRIS
 	loadtrainer CAL, CAL3
