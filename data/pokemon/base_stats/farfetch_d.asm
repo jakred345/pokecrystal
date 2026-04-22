@@ -1,11 +1,11 @@
 	db FARFETCH_D ; 083
 
-	db  62,  135,  95,  65,  68,  82
+	db  52,  65,  55,  60,  58,  62
 	;   hp  atk  def  spd  sat  sdf
 
-	db FIGHTING, FIGHTING ; type
+	db NORMAL, FLYING ; type
 	db 45 ; catch rate
-	db 177 ; base exp
+	db 94 ; base exp
 	db NO_ITEM, STICK ; items
 	db GENDER_F50 ; gender ratio
 	db 100 ; unknown 1

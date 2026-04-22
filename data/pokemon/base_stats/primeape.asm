@@ -1,11 +1,11 @@
 	db PRIMEAPE ; 057
 
-	db  110, 115,  80,  90,  50,  90
+	db  65, 105,  60,  95,  60,  70
 	;   hp  atk  def  spd  sat  sdf
 
-	db FIGHTING, GHOST ; type
+	db FIGHTING, FIGHTING ; type
 	db 75 ; catch rate
-	db 210 ; base exp
+	db 149 ; base exp
 	db NO_ITEM, NO_ITEM ; items
 	db GENDER_F50 ; gender ratio
 	db 100 ; unknown 1
