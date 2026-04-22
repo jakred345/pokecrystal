@@ -735,7 +735,7 @@ GolduckEvosAttacks:
 	db 0 ; no more level-up moves
 
 MankeyEvosAttacks:
-	db EVOLVE_LEVEL, 32, PRIMEAPE
+	db EVOLVE_LEVEL, 26, PRIMEAPE
 	db 0 ; no more evolutions
 	db 1, SCRATCH
 	db 1, LEER
@@ -1503,7 +1503,7 @@ WeezingEvosAttacks:
 	db 0 ; no more level-up moves
 
 RhyhornEvosAttacks:
-	db EVOLVE_LEVEL, 32, RHYDON
+	db EVOLVE_LEVEL, 30, RHYDON
 	db 0 ; no more evolutions
 	db 1, HORN_ATTACK
 	db 1, TAIL_WHIP
@@ -2887,7 +2887,7 @@ SneaselEvosAttacks:
 	db 0 ; no more level-up moves
 
 TeddiursaEvosAttacks:
-	db EVOLVE_LEVEL, 32, URSARING
+	db EVOLVE_LEVEL, 30, URSARING
 	db 0 ; no more evolutions
 	db 1, SCRATCH
 	db 1, LEER
@@ -2943,7 +2943,7 @@ MagcargoEvosAttacks:
 	db 0 ; no more level-up moves
 
 SwinubEvosAttacks:
-	db EVOLVE_LEVEL, 30, PILOSWINE
+	db EVOLVE_LEVEL, 26, PILOSWINE
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 10, POWDER_SNOW
@@ -3174,7 +3174,7 @@ SmoochumEvosAttacks:
 	db 0 ; no more level-up moves
 
 ElekidEvosAttacks:
-	db EVOLVE_LEVEL, 32, ELECTABUZZ
+	db EVOLVE_LEVEL, 30, ELECTABUZZ
 	db 0 ; no more evolutions
 	db 1, QUICK_ATTACK
 	db 1, LEER
@@ -3187,7 +3187,7 @@ ElekidEvosAttacks:
 	db 0 ; no more level-up moves
 
 MagbyEvosAttacks:
-	db EVOLVE_LEVEL, 32, MAGMAR
+	db EVOLVE_LEVEL, 30, MAGMAR
 	db 0 ; no more evolutions
 	db 1, EMBER
 	db 7, LEER
