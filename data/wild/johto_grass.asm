@@ -1075,7 +1075,7 @@ JohtoGrassWildMons:
 	db 45, MAGMAR
 	db 45, GOLBAT
 	db 20, LARVITAR
-	db 15, LARVITAR
+	db 5, ARTICUNO
 	; day
 	db 43, GRAVELER
 	db 44, URSARING
@@ -1083,7 +1083,7 @@ JohtoGrassWildMons:
 	db 45, MAGMAR
 	db 45, GOLBAT
 	db 20, LARVITAR
-	db 15, LARVITAR
+	db 5, ARTICUNO
 	; nite
 	db 43, GRAVELER
 	db 44, GOLBAT
@@ -1091,7 +1091,7 @@ JohtoGrassWildMons:
 	db 42, GOLBAT
 	db 45, GOLDUCK
 	db 46, GOLBAT
-	db 46, GOLBAT
+	db 5, ARTICUNO
 	end_grass_wildmons
 
 	def_grass_wildmons SILVER_CAVE_ROOM_2
@@ -1103,7 +1103,7 @@ JohtoGrassWildMons:
 	db 46, PARASECT
 	db 48, PARASECT
 	db 15, LARVITAR
-	db 20, LARVITAR
+	db 5, ZAPDOS
 	; day
 	db 48, GOLBAT
 	db 48, MACHOKE
@@ -1111,7 +1111,7 @@ JohtoGrassWildMons:
 	db 46, PARASECT
 	db 48, PARASECT
 	db 15, LARVITAR
-	db 20, LARVITAR
+	db 5, ZAPDOS
 	; nite
 	db 48, GOLBAT
 	db 48, GOLDUCK
@@ -1119,7 +1119,7 @@ JohtoGrassWildMons:
 	db 46, PARASECT
 	db 48, PARASECT
 	db 45, MISDREAVUS
-	db 45, MISDREAVUS
+	db 5, ZAPDOS
 	end_grass_wildmons
 
 	def_grass_wildmons SILVER_CAVE_ROOM_3
@@ -1131,7 +1131,7 @@ JohtoGrassWildMons:
 	db 50, URSARING
 	db 20, LARVITAR
 	db 15, LARVITAR
-	db 20, PUPITAR
+	db 5, MOLTRES
 	; day
 	db 51, GOLBAT
 	db 48, ONIX
@@ -1139,7 +1139,7 @@ JohtoGrassWildMons:
 	db 50, URSARING
 	db 20, LARVITAR
 	db 15, LARVITAR
-	db 20, PUPITAR
+	db 5, MOLTRES
 	; nite
 	db 51, GOLBAT
 	db 48, ONIX
@@ -1147,7 +1147,7 @@ JohtoGrassWildMons:
 	db 49, GOLBAT
 	db 45, GOLDUCK
 	db 53, GOLBAT
-	db 53, GOLBAT
+	db 5, MOLTRES
 	end_grass_wildmons
 
 	def_grass_wildmons SILVER_CAVE_ITEM_ROOMS
@@ -1159,7 +1159,7 @@ JohtoGrassWildMons:
 	db 46, PARASECT
 	db 48, PARASECT
 	db 50, PARASECT
-	db 52, PARASECT
+	db 5, MEW
 	; day
 	db 48, GOLBAT
 	db 46, GOLBAT
@@ -1167,7 +1167,7 @@ JohtoGrassWildMons:
 	db 46, PARASECT
 	db 48, PARASECT
 	db 50, PARASECT
-	db 52, PARASECT
+	db 5, MEW
 	; nite
 	db 45, MISDREAVUS
 	db 48, GOLBAT
@@ -1175,7 +1175,7 @@ JohtoGrassWildMons:
 	db 46, PARASECT
 	db 48, PARASECT
 	db 50, PARASECT
-	db 52, PARASECT
+	db 5, MEW
 	end_grass_wildmons
 
 	def_grass_wildmons DARK_CAVE_VIOLET_ENTRANCE
@@ -1691,7 +1691,7 @@ JohtoGrassWildMons:
 	db 44, RAPIDASH
 	db 41, DODUO
 	db 43, DODRIO
-	db 43, DODRIO
+	db 5, MEWTWO
 	; day
 	db 2, CHARMANDER
 	db 2, CYNDAQUIL
@@ -1699,7 +1699,7 @@ JohtoGrassWildMons:
 	db 44, RAPIDASH
 	db 41, DODUO
 	db 43, DODRIO
-	db 43, DODRIO
+	db 5, MEWTWO
 	; nite
 	db 2, SQUIRTLE
 	db 2, TOTODILE
@@ -1707,7 +1707,7 @@ JohtoGrassWildMons:
 	db 44, POLIWHIRL
 	db 40, GOLBAT
 	db 44, GOLBAT
-	db 44, GOLBAT
+	db 5, MEWTWO
 	end_grass_wildmons
 
 	db -1 ; end
