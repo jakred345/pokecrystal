@@ -2943,7 +2943,7 @@ MagcargoEvosAttacks:
 	db 0 ; no more level-up moves
 
 SwinubEvosAttacks:
-	db EVOLVE_LEVEL, 26, PILOSWINE
+	db EVOLVE_LEVEL, 25, PILOSWINE
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 10, POWDER_SNOW
