@@ -569,7 +569,7 @@ JohtoGrassWildMons:
 	db 5, WEEDLE
 	db 7, METAPOD
 	db 7, KAKUNA
-	db 7, PIDGEY
+	db 7, YANMA
 	db 6, PARAS
 	db 6, PARAS
 	; day
@@ -577,7 +577,7 @@ JohtoGrassWildMons:
 	db 5, WEEDLE
 	db 7, METAPOD
 	db 7, KAKUNA
-	db 7, PIDGEY
+	db 7, YANMA
 	db 6, PARAS
 	db 6, PARAS
 	; nite
@@ -625,25 +625,25 @@ JohtoGrassWildMons:
 	db 14, RATTATA
 	db 15, MACHOP
 	db 14, RATICATE
-	db 15, ZUBAT
-	db 15, GOLBAT
-	db 15, GOLBAT
+	db 15, SNEASEL
+	db 15, GLIGAR
+	db 15, GLIGAR
 	; day
 	db 13, GEODUDE
 	db 14, RATTATA
 	db 15, MACHOP
 	db 14, RATICATE
-	db 15, ZUBAT
-	db 15, GOLBAT
-	db 15, GOLBAT
+	db 15, SNEASEL
+	db 15, GLIGAR
+	db 15, GLIGAR
 	; nite
 	db 13, GEODUDE
 	db 14, RATTATA
 	db 15, RATICATE
 	db 14, ZUBAT
-	db 15, MARILL
-	db 15, GOLBAT
-	db 15, GOLBAT
+	db 15, MURKROW
+	db 15, MISDREAVUS
+	db 15, MISDREAVUS
 	end_grass_wildmons
 
 	def_grass_wildmons MOUNT_MORTAR_2F_INSIDE
@@ -1437,7 +1437,7 @@ JohtoGrassWildMons:
 	db 4, PIDGEY
 	db 5, BELLSPROUT
 	db 5, GROWLITHE
-	db 5, PIDGEY
+	db 5, LICKITUNG
 	db 6, PIDGEY
 	db 6, PIDGEY
 	; day
@@ -1445,7 +1445,7 @@ JohtoGrassWildMons:
 	db 4, PIDGEY
 	db 5, BELLSPROUT
 	db 5, GROWLITHE
-	db 5, PIDGEY
+	db 5, LICKITUNG
 	db 6, PIDGEY
 	db 6, PIDGEY
 	; nite
@@ -1465,7 +1465,7 @@ JohtoGrassWildMons:
 	db 14, GROWLITHE
 	db 15, PIDGEY
 	db 16, GROWLITHE
-	db 15, PIDGEOTTO
+	db 15, TANGELA
 	db 15, LEDIAN
 	db 15, LEDIAN
 	; day
@@ -1473,14 +1473,14 @@ JohtoGrassWildMons:
 	db 14, GROWLITHE
 	db 15, PIDGEY
 	db 16, GROWLITHE
-	db 15, PIDGEOTTO
+	db 15, TANGELA
 	db 15, PIDGEY
 	db 15, PIDGEY
 	; nite
 	db 13, SPINARAK
-	db 14, SMEARGLE
+	db 14, STANTLER
 	db 15, HOOTHOOT
-	db 16, SMEARGLE
+	db 16, STANTLER
 	db 15, NOCTOWL
 	db 15, ARIADOS
 	db 15, ARIADOS
@@ -1492,7 +1492,7 @@ JohtoGrassWildMons:
 	db 16, RATTATA
 	db 16, RATICATE
 	db 16, MAGNEMITE
-	db 16, PIDGEOTTO
+	db 16, GIRAFARIG
 	db 13, TAUROS
 	db 13, MILTANK
 	db 13, MILTANK
@@ -1500,7 +1500,7 @@ JohtoGrassWildMons:
 	db 16, RATTATA
 	db 16, RATICATE
 	db 16, MAGNEMITE
-	db 16, PIDGEOTTO
+	db 16, GIRAFARIG
 	db 13, TAUROS
 	db 13, MILTANK
 	db 13, MILTANK
