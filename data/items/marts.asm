@@ -236,15 +236,15 @@ MartMahogany2:
 
 MartBlackthorn:
 	db 9 ; # items
-	db GREAT_BALL
-	db ULTRA_BALL
 	db HYPER_POTION
 	db MAX_POTION
 	db FULL_HEAL
 	db REVIVE
-	db MAX_REPEL
-	db X_DEFEND
-	db X_ATTACK
+	db TM_REFLECT
+	db TM_LIGHT_SCREEN
+	db TM_ROCK_SLIDE
+	db TM_BODY_SLAM
+	db TM_DOUBLE_EDGE
 	db -1 ; end
 
 MartViridian:

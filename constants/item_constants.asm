@@ -269,6 +269,11 @@ DEF TM01 EQU const_value
 	add_tm FIRE_PUNCH   ; f0
 	add_tm FURY_CUTTER  ; f1
 	add_tm NIGHTMARE    ; f2
+	add_tm REFLECT      ; f3
+	add_tm LIGHT_SCREEN ; f4
+	add_tm ROCK_SLIDE   ; f5
+	add_tm DOUBLE_EDGE  ; f6
+	add_tm BODY_SLAM    ; f7
 DEF NUM_TMS EQU __tmhm_value__ - 1
 
 MACRO add_hm
