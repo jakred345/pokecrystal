@@ -344,30 +344,57 @@ MartCeladon3F:
 	db -1 ; end
 
 MartCeladon4F:
-	db 3 ; # items
+	db 15 ; # items
 	db POKE_DOLL
 	db LOVELY_MAIL
 	db SURF_MAIL
+	db FIRE_STONE
+	db THUNDERSTONE
+	db WATER_STONE
+	db LEAF_STONE
+	db SUN_STONE
+	db MOON_STONE
+    db EXP_SHARE
+    db LUCKY_EGG
+	db LEFTOVERS
+	db FOCUS_BAND
+	db QUICK_CLAW
+	db BRIGHTPOWDER
 	db -1 ; end
 
 MartCeladon5F1:
-	db 5 ; # items
+	db 12 ; # items
 	db HP_UP
 	db PROTEIN
 	db IRON
 	db CARBOS
 	db CALCIUM
+    db PP_UP
+    db RARE_CANDY
+	db MIRACLEBERRY
+	db POISON_BARB
+	db MIRACLEBERRY
+	db SILVERPOWDER
+	db POLKADOT_BOW
 	db -1 ; end
 
 MartCeladon5F2:
-	db 7 ; # items
-	db X_ACCURACY
-	db GUARD_SPEC
-	db DIRE_HIT
-	db X_ATTACK
-	db X_DEFEND
-	db X_SPEED
-	db X_SPECIAL
+	db 15 ; # items
+	db BLACKBELT_I
+	db BLACKGLASSES
+	db CHARCOAL
+	db DRAGON_FANG
+	db HARD_STONE
+	db MAGNET
+	db METAL_COAT
+	db MIRACLE_SEED
+	db MYSTIC_WATER
+	db NEVERMELTICE
+	db PINK_BOW
+	db SHARP_BEAK
+	db SOFT_SAND
+	db SPELL_TAG
+	db TWISTEDSPOON
 	db -1 ; end
 
 MartFuchsia:
