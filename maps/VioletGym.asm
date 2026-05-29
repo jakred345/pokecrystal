@@ -47,11 +47,62 @@ VioletGymFalknerScript:
 	end
 
 .SpeechAfterTM:
+	checkevent EVENT_BEAT_FALKNER
+    iftrue .FalknerRematch
 	writetext FalknerFightDoneText
 	waitbutton
 .NoRoomForMudSlap:
 	closetext
 	end
+
+.FalknerRematch:
+    writetext FalknerText_AskRematch
+    yesorno
+    iftrue .FalknerRematchSelection
+    closetext
+    end
+
+.FalknerRematchSelection:
+    checkevent EVENT_OPENED_MT_SILVER
+    iftrue .FalknerRematchTeamSelection
+    sjump .FalknerStartStandardRematch
+    
+.FalknerRematchTeamSelection
+    writetext FalknerText_AskRematchTeam
+    yesorno
+    iftrue .FalknerStartFinalRematch
+    sjump .FalknerStartStandardRematch
+
+.FalknerStartStandardRematch
+    closetext
+	winlosstext FalknerText_RematchDefeatText, 0
+	loadtrainer FALKNER, FALKNER1
+	startbattle
+	reloadmapafterbattle
+    end
+
+.FalknerStartFinalRematch
+    closetext
+	winlosstext FalknerText_RematchDefeatText, 0
+	loadtrainer FALKNER, FALKNER2
+	startbattle
+	reloadmapafterbattle
+    end
+
+FalknerText_AskRematch:
+	text "Want to have a"
+	line "rematch with me?"
+	done
+
+FalknerText_AskRematchTeam:
+	text "Do you want to"
+	line "face me at full?"
+	cont "strength?"
+	done
+
+FalknerText_RematchDefeatText:
+	text "You win again."
+	done
 
 VioletGymActivateRockets:
 	ifequal 7, .RadioTowerRockets
