@@ -43,29 +43,6 @@ TrainerYoungsterJoey:
 	loadvar VAR_CALLERID, PHONE_YOUNGSTER_JOEY
 	endifjustbattled
 	opentext
-	checkflag ENGINE_JOEY_READY_FOR_REMATCH
-	iftrue .Rematch
-	checkcellnum PHONE_YOUNGSTER_JOEY
-	iftrue .NumberAccepted
-	checkevent EVENT_JOEY_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskAgain
-	writetext YoungsterJoey1AfterText
-	promptbutton
-	setevent EVENT_JOEY_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber1
-	sjump .RequestNumber
-
-.AskAgain:
-	scall .AskNumber2
-.RequestNumber:
-	askforphonenumber PHONE_YOUNGSTER_JOEY
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
-	gettrainername STRING_BUFFER_3, YOUNGSTER, JOEY1
-	scall .RegisteredNumber
-	sjump .NumberAccepted
-
-.Rematch:
 	scall .RematchStd
 	winlosstext YoungsterJoey1BeatenText, 0
 	readmem wJoeyFightCount

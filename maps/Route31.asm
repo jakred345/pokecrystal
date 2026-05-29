@@ -29,31 +29,6 @@ TrainerBugCatcherWade1:
 	loadvar VAR_CALLERID, PHONE_BUG_CATCHER_WADE
 	endifjustbattled
 	opentext
-	checkflag ENGINE_WADE_READY_FOR_REMATCH
-	iftrue .WadeRematch
-	checkflag ENGINE_WADE_HAS_ITEM
-	iftrue .WadeItem
-	checkcellnum PHONE_BUG_CATCHER_WADE
-	iftrue .AcceptedNumberSTD
-	checkevent EVENT_WADE_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskAgain
-	writetext BugCatcherWade1AfterText
-	waitbutton
-	setevent EVENT_WADE_ASKED_FOR_PHONE_NUMBER
-	scall .AskPhoneNumberSTD
-	sjump .Continue
-
-.AskAgain:
-	scall .AskAgainSTD
-.Continue:
-	askforphonenumber PHONE_BUG_CATCHER_WADE
-	ifequal PHONE_CONTACTS_FULL, .PhoneFullSTD
-	ifequal PHONE_CONTACT_REFUSED, .DeclinedNumberSTD
-	gettrainername STRING_BUFFER_3, BUG_CATCHER, WADE1
-	scall .RegisterNumberSTD
-	sjump .AcceptedNumberSTD
-
-.WadeRematch:
 	scall .RematchSTD
 	winlosstext BugCatcherWade1BeatenText, 0
 	readmem wWadeFightCount
