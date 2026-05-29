@@ -5,6 +5,7 @@
 	const SPROUTTOWER1F_TEACHER
 	const SPROUTTOWER1F_SAGE3
 	const SPROUTTOWER1F_POKE_BALL
+	const SPROUTTOWER1F_LYRA
 
 SproutTower1F_MapScripts:
 	def_scene_scripts
@@ -30,6 +31,27 @@ TrainerSageChow:
 	endifjustbattled
 	opentext
 	writetext SageChowAfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerLyra:
+	checkevent EVENT_GOT_TOTODILE_FROM_ELM
+	iftrue .Totodile
+	checkevent EVENT_GOT_CHIKORITA_FROM_ELM
+	iftrue .Chikorita
+	trainer COOLTRAINERF, LYRA_1_CHIKORITA, EVENT_BEAT_COOLTRAINERF_LYRA1, LyraSeenText, LyraBeatenText, 0, .Script
+
+.Totodile:
+	trainer COOLTRAINERF, LYRA_1_CYNDAQUIL, EVENT_BEAT_COOLTRAINERF_LYRA1, LyraSeenText, LyraBeatenText, 0, .Script
+
+.Chikorita:
+	trainer COOLTRAINERF, LYRA_1_TOTODILE, EVENT_BEAT_COOLTRAINERF_LYRA1, LyraSeenText, LyraBeatenText, 0, .Script
+	
+.Script:
+	endifjustbattled
+	opentext
+	writetext LyraAfterBattleText
 	waitbutton
 	closetext
 	end
@@ -60,6 +82,21 @@ SageChowAfterBattleText:
 
 	para "We must always be"
 	line "thankful for this."
+	done
+
+CooltrainerfLyraSeenText:
+	text "I am a trainer"
+	line "trying to become"
+	cont "the champion."
+	done
+
+CooltrainerfLyraBeatenText:
+	text "Well Done!"
+	done
+
+CooltrainerfLyraAfterBattleText:
+	text "I have a new rival"
+	line "to defeat now."
 	done
 
 SproutTower1FSage1Text:
@@ -123,3 +160,4 @@ SproutTower1F_MapEvents:
 	object_event  9,  9, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SproutTower1FTeacherScript, -1
 	object_event  3,  5, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerSageChow, -1
 	object_event 16,  7, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SproutTower1FParlyzHeal, EVENT_SPROUT_TOWER_1F_PARLYZ_HEAL
+	object_event  8,  13, SPRITE_KRIS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerLyra, -1

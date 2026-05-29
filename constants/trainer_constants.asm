@@ -239,6 +239,9 @@ DEF KRIS EQU __trainer_class__
 	const REENA2
 	const REENA3
 	const CARA
+	const LYRA_1_CHIKORITA
+	const LYRA_1_CYNDAQUIL
+	const LYRA_1_TOTODILE
 
 	trainerclass BEAUTY ; 1d
 	const VICTORIA
