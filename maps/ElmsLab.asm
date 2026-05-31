@@ -462,7 +462,7 @@ AideScript_WalkPotion1:
 	scall AideScript_GivePotion
 	scall AideScript_GivePocketPC
 	scall AideScript_GivePocketReminder
-+	scall AideScript_GivePocketDeleter
+	scall AideScript_GivePocketDeleter
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksLeft1
 	end
 
@@ -472,7 +472,7 @@ AideScript_WalkPotion2:
 	scall AideScript_GivePotion
 	scall AideScript_GivePocketPC
 	scall AideScript_GivePocketReminder
-+	scall AideScript_GivePocketDeleter
+	scall AideScript_GivePocketDeleter
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksLeft2
 	end
 
