@@ -1202,7 +1202,7 @@ JohtoGrassWildMons:
 	db 2, GEODUDE
 	db 4, GEODUDE
 	db 2, ZUBAT
-	db 4, ZUBAT
+	db 4, LARVITAR
 	db 4, DUNSPARCE
 	end_grass_wildmons
 

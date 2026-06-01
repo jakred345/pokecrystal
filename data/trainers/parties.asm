@@ -3124,9 +3124,9 @@ SageGroup:
 
 	; SAGE (7)
 	db "EDMOND@", TRAINERTYPE_NORMAL
-	db  3, BELLSPROUT
-	db  3, BELLSPROUT
-	db  3, BELLSPROUT
+	db  7, CHIKORITA
+	db  7, CYNDAQUIL
+	db  7, TOTODILE
 	db -1 ; end
 
 	; SAGE (8)

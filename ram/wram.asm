@@ -1892,11 +1892,6 @@ wMartItem12BCD:: ds 3
 wMartItem13BCD:: ds 3
 wMartItem14BCD:: ds 3
 wMartItem15BCD:: ds 3
-wMartItem16BCD:: ds 3
-wMartItem17BCD:: ds 3
-wMartItem18BCD:: ds 3
-wMartItem19BCD:: ds 3
-wMartItem20BCD:: ds 3
 
 
 SECTION UNION "Miscellaneous WRAM 1", WRAMX
@@ -2325,7 +2320,7 @@ wUsingItemWithSelect:: db
 UNION
 ; mart data
 wCurMartCount:: db
-wCurMartItems:: ds 21
+wCurMartItems:: ds 15
 
 NEXTU
 ; elevator data

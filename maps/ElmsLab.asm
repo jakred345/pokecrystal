@@ -514,7 +514,7 @@ AideScript_GivePocketDeleter:
 	writetext AideText_PocketDeleterInfoText
 	waitbutton
 	closetext
-	setscene SCENE_ELMSLAB_NOTHING
+	setscene SCENE_ELMSLAB_NOOP
 	end
 
 AideScript_WalkBalls1:

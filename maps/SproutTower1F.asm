@@ -35,26 +35,47 @@ TrainerSageChow:
 	closetext
 	end
 
-TrainerLyra:
+TrainerCooltrainerfLyra:
+	faceplayer
+	opentext
+	writetext CooltrainerfLyraSeenText
+	waitbutton
+	closetext
 	checkevent EVENT_GOT_TOTODILE_FROM_ELM
 	iftrue .Totodile
 	checkevent EVENT_GOT_CHIKORITA_FROM_ELM
 	iftrue .Chikorita
-	trainer COOLTRAINERF, LYRA_1_CHIKORITA, EVENT_BEAT_COOLTRAINERF_LYRA1, LyraSeenText, LyraBeatenText, 0, .Script
-
-.Totodile:
-	trainer COOLTRAINERF, LYRA_1_CYNDAQUIL, EVENT_BEAT_COOLTRAINERF_LYRA1, LyraSeenText, LyraBeatenText, 0, .Script
-
-.Chikorita:
-	trainer COOLTRAINERF, LYRA_1_TOTODILE, EVENT_BEAT_COOLTRAINERF_LYRA1, LyraSeenText, LyraBeatenText, 0, .Script
-	
-.Script:
-	endifjustbattled
-	opentext
-	writetext LyraAfterBattleText
+	winlosstext CooltrainerfLyraBeatenText, 0
+    loadtrainer COOLTRAINERF, LYRA_1_CHIKORITA
+    startbattle
+	reloadmapafterbattle
+    opentext
+	writetext CooltrainerfLyraAfterBattleText
 	waitbutton
 	closetext
-	end
+    end
+
+.Totodile:
+	winlosstext CooltrainerfLyraBeatenText, 0
+    loadtrainer COOLTRAINERF, LYRA_1_CYNDAQUIL
+    startbattle
+	reloadmapafterbattle
+    opentext
+	writetext CooltrainerfLyraAfterBattleText
+	waitbutton
+	closetext
+    end
+
+.Chikorita:
+	winlosstext CooltrainerfLyraBeatenText, 0
+    loadtrainer COOLTRAINERF, LYRA_1_TOTODILE
+    startbattle
+	reloadmapafterbattle
+    opentext
+	writetext CooltrainerfLyraAfterBattleText
+	waitbutton
+	closetext
+    end
 
 SproutTower1FParlyzHeal:
 	itemball PARLYZ_HEAL
@@ -160,4 +181,4 @@ SproutTower1F_MapEvents:
 	object_event  9,  9, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SproutTower1FTeacherScript, -1
 	object_event  3,  5, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerSageChow, -1
 	object_event 16,  7, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SproutTower1FParlyzHeal, EVENT_SPROUT_TOWER_1F_PARLYZ_HEAL
-	object_event  8,  13, SPRITE_KRIS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerLyra, -1
+	object_event  8,  13, SPRITE_KRIS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, TrainerCooltrainerfLyra, -1
