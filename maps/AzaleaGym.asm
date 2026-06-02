@@ -50,11 +50,62 @@ AzaleaGymBugsyScript:
 	end
 
 .GotFuryCutter:
+	checkevent EVENT_BEAT_BUGSY
+    iftrue .BugsyRematch
 	writetext BugsyText_BugMonsAreDeep
 	waitbutton
 .NoRoomForFuryCutter:
 	closetext
 	end
+
+.BugsyRematch:
+    writetext BugsyText_AskRematch
+    yesorno
+    iftrue .BugsyRematchSelection
+    closetext
+    end
+
+.BugsyRematchSelection:
+    checkevent EVENT_OPENED_MT_SILVER
+    iftrue .BugsyRematchTeamSelection
+    sjump .BugsyStartStandardRematch
+    
+.BugsyRematchTeamSelection
+    writetext BugsyText_AskRematchTeam
+    yesorno
+    iftrue .BugsyStartFinalRematch
+    sjump .BugsyStartStandardRematch
+
+.BugsyStartStandardRematch
+    closetext
+	winlosstext BugsyText_RematchDefeatText, 0
+	loadtrainer BUGSY, BUGSY1
+	startbattle
+	reloadmapafterbattle
+    end
+
+.BugsyStartFinalRematch
+    closetext
+	winlosstext BugsyText_RematchDefeatText, 0
+	loadtrainer BUGSY, BUGSY2
+	startbattle
+	reloadmapafterbattle
+    end
+
+BugsyText_AskRematch:
+	text "Want to have a"
+	line "rematch with me?"
+	done
+
+BugsyText_AskRematchTeam:
+	text "Do you want to"
+	line "face me at full?"
+	cont "strength?"
+	done
+
+BugsyText_RematchDefeatText:
+	text "You win again."
+	done
 
 AzaleaGymActivateRockets:
 	ifequal 7, .RadioTowerRockets

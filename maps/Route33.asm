@@ -18,31 +18,6 @@ TrainerHikerAnthony:
 	loadvar VAR_CALLERID, PHONE_HIKER_ANTHONY
 	endifjustbattled
 	opentext
-	checkflag ENGINE_ANTHONY_READY_FOR_REMATCH
-	iftrue .Rematch
-	checkflag ENGINE_DUNSPARCE_SWARM
-	iftrue .Swarm
-	checkcellnum PHONE_HIKER_ANTHONY
-	iftrue .NumberAccepted
-	checkevent EVENT_ANTHONY_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskAgain
-	writetext HikerAnthony2AfterText
-	promptbutton
-	setevent EVENT_ANTHONY_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber1
-	sjump .AskForPhoneNumber
-
-.AskAgain:
-	scall .AskNumber2
-.AskForPhoneNumber:
-	askforphonenumber PHONE_HIKER_ANTHONY
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
-	gettrainername STRING_BUFFER_3, HIKER, ANTHONY2
-	scall .RegisteredNumber
-	sjump .NumberAccepted
-
-.Rematch:
 	scall .RematchStd
 	winlosstext HikerAnthony2BeatenText, 0
 	readmem wAnthonyFightCount

@@ -170,31 +170,6 @@ TrainerFisherRalph1:
 	loadvar VAR_CALLERID, PHONE_FISHER_RALPH
 	endifjustbattled
 	opentext
-	checkflag ENGINE_RALPH_READY_FOR_REMATCH
-	iftrue .Rematch
-	checkflag ENGINE_QWILFISH_SWARM
-	iftrue .Swarm
-	checkcellnum PHONE_FISHER_RALPH
-	iftrue .NumberAccepted
-	checkevent EVENT_RALPH_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskAgain
-	writetext FisherRalphAfterText
-	promptbutton
-	setevent EVENT_RALPH_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber1
-	sjump .AskForNumber
-
-.AskAgain:
-	scall .AskNumber2
-.AskForNumber:
-	askforphonenumber PHONE_FISHER_RALPH
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
-	gettrainername STRING_BUFFER_3, FISHER, RALPH1
-	scall .RegisteredNumber
-	sjump .NumberAccepted
-
-.Rematch:
 	scall .RematchStd
 	winlosstext FisherRalph1BeatenText, 0
 	readmem wRalphFightCount
@@ -306,29 +281,6 @@ TrainerPicnickerLiz1:
 	loadvar VAR_CALLERID, PHONE_PICNICKER_LIZ
 	endifjustbattled
 	opentext
-	checkflag ENGINE_LIZ_READY_FOR_REMATCH
-	iftrue .Rematch
-	checkcellnum PHONE_PICNICKER_LIZ
-	iftrue .NumberAccepted
-	checkevent EVENT_LIZ_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskAgain
-	writetext PicnickerLiz1AfterText
-	promptbutton
-	setevent EVENT_LIZ_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber1
-	sjump .AskForNumber
-
-.AskAgain:
-	scall .AskNumber2
-.AskForNumber:
-	askforphonenumber PHONE_PICNICKER_LIZ
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
-	gettrainername STRING_BUFFER_3, PICNICKER, LIZ1
-	scall .RegisteredNumber
-	sjump .NumberAccepted
-
-.Rematch:
 	scall .RematchStd
 	winlosstext PicnickerLiz1BeatenText, 0
 	readmem wLizFightCount
@@ -943,7 +895,7 @@ Route32_MapEvents:
 
 	def_object_events
 	object_event  8, 49, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerFisherJustin, -1
-	object_event 12, 56, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerFisherRalph1, -1
+	object_event 12, 56, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerFisherRalph1, -1
 	object_event  6, 48, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerFisherHenry, -1
 	object_event 12, 22, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterAlbert, -1
 	object_event  4, 63, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterGordon, -1
