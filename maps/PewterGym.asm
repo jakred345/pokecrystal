@@ -33,10 +33,53 @@ PewterGymBrockScript:
 	end
 
 .FightDone:
-	writetext BrockFightDoneText
-	waitbutton
-	closetext
-	end
+	writetext BrockText_AskRematch
+    yesorno
+    iftrue .BrockRematchSelection
+    closetext
+    end
+
+.BrockRematchSelection:
+    checkevent EVENT_OPENED_MT_SILVER
+    iftrue .BrockRematchTeamSelection
+    sjump .BrockStartStandardRematch
+    
+.BrockRematchTeamSelection
+    writetext BrockText_AskRematchTeam
+    yesorno
+    iftrue .BrockStartFinalRematch
+    sjump .BrockStartStandardRematch
+
+.BrockStartStandardRematch
+    closetext
+	winlosstext BrockText_RematchDefeatText, 0
+	loadtrainer BROCK, BROCK1
+	startbattle
+	reloadmapafterbattle
+    end
+
+.BrockStartFinalRematch
+    closetext
+	winlosstext BrockText_RematchDefeatText, 0
+	loadtrainer BROCK, BROCK2
+	startbattle
+	reloadmapafterbattle
+    end
+
+BrockText_AskRematch:
+	text "Want to have a"
+	line "rematch with me?"
+	done
+
+BrockText_AskRematchTeam:
+	text "Do you want to"
+	line "face me at full?"
+	cont "strength?"
+	done
+
+BrockText_RematchDefeatText:
+	text "You win again."
+	done
 
 TrainerCamperJerry:
 	trainer CAMPER, JERRY, EVENT_BEAT_CAMPER_JERRY, CamperJerrySeenText, CamperJerryBeatenText, 0, .Script

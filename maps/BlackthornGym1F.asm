@@ -85,10 +85,61 @@ BlackthornGymClairScript:
 	end
 
 .GotTM24:
+	checkevent EVENT_BEAT_CLAIR
+    iftrue .ClairRematch
 	writetext BlackthornGymClairText_League
 	waitbutton
 	closetext
 	end
+
+.ClairRematch:
+    writetext ClairText_AskRematch
+    yesorno
+    iftrue .ClairRematchSelection
+    closetext
+    end
+
+.ClairRematchSelection:
+    checkevent EVENT_OPENED_MT_SILVER
+    iftrue .ClairRematchTeamSelection
+    sjump .ClairStartStandardRematch
+    
+.ClairRematchTeamSelection
+    writetext ClairText_AskRematchTeam
+    yesorno
+    iftrue .ClairStartFinalRematch
+    sjump .ClairStartStandardRematch
+
+.ClairStartStandardRematch
+    closetext
+	winlosstext ClairText_RematchDefeatText, 0
+	loadtrainer CLAIR, CLAIR1
+	startbattle
+	reloadmapafterbattle
+    end
+
+.ClairStartFinalRematch
+    closetext
+	winlosstext ClairText_RematchDefeatText, 0
+	loadtrainer CLAIR, CLAIR2
+	startbattle
+	reloadmapafterbattle
+    end
+
+ClairText_AskRematch:
+	text "Want to have a"
+	line "rematch with me?"
+	done
+
+ClairText_AskRematchTeam:
+	text "Do you want to"
+	line "face me at full?"
+	cont "strength?"
+	done
+
+ClairText_RematchDefeatText:
+	text "You win again."
+	done
 
 TrainerCooltrainermPaul:
 	trainer COOLTRAINERM, PAUL, EVENT_BEAT_COOLTRAINERM_PAUL, CooltrainermPaulSeenText, CooltrainermPaulBeatenText, 0, .Script

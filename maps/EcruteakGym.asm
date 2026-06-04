@@ -62,11 +62,62 @@ EcruteakGymMortyScript:
 	end
 
 .GotShadowBall:
+	checkevent EVENT_BEAT_MORTY
+    iftrue .MortyRematch
 	writetext MortyFightDoneText
 	waitbutton
 .NoRoomForShadowBall:
 	closetext
 	end
+
+.MortyRematch:
+    writetext MortyText_AskRematch
+    yesorno
+    iftrue .MortyRematchSelection
+    closetext
+    end
+
+.MortyRematchSelection:
+    checkevent EVENT_OPENED_MT_SILVER
+    iftrue .MortyRematchTeamSelection
+    sjump .MortyStartStandardRematch
+    
+.MortyRematchTeamSelection
+    writetext MortyText_AskRematchTeam
+    yesorno
+    iftrue .MortyStartFinalRematch
+    sjump .MortyStartStandardRematch
+
+.MortyStartStandardRematch
+    closetext
+	winlosstext MortyText_RematchDefeatText, 0
+	loadtrainer MORTY, MORTY1
+	startbattle
+	reloadmapafterbattle
+    end
+
+.MortyStartFinalRematch
+    closetext
+	winlosstext MortyText_RematchDefeatText, 0
+	loadtrainer MORTY, MORTY2
+	startbattle
+	reloadmapafterbattle
+    end
+
+MortyText_AskRematch:
+	text "Want to have a"
+	line "rematch with me?"
+	done
+
+MortyText_AskRematchTeam:
+	text "Do you want to"
+	line "face me at full?"
+	cont "strength?"
+	done
+
+MortyText_RematchDefeatText:
+	text "You win again."
+	done
 
 EcruteakGymActivateRockets:
 	ifequal 7, .RadioTowerRockets

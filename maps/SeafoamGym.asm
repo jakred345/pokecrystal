@@ -38,10 +38,53 @@ SeafoamGymBlaineScript:
 	end
 
 .FightDone:
-	writetext BlaineFightDoneText
-	waitbutton
-	closetext
-	end
+	writetext BlaineText_AskRematch
+    yesorno
+    iftrue .BlaineRematchSelection
+    closetext
+    end
+
+.BlaineRematchSelection:
+    checkevent EVENT_OPENED_MT_SILVER
+    iftrue .BlaineRematchTeamSelection
+    sjump .BlaineStartStandardRematch
+    
+.BlaineRematchTeamSelection
+    writetext BlaineText_AskRematchTeam
+    yesorno
+    iftrue .BlaineStartFinalRematch
+    sjump .BlaineStartStandardRematch
+
+.BlaineStartStandardRematch
+    closetext
+	winlosstext BlaineText_RematchDefeatText, 0
+	loadtrainer BLAINE, BLAINE1
+	startbattle
+	reloadmapafterbattle
+    end
+
+.BlaineStartFinalRematch
+    closetext
+	winlosstext BlaineText_RematchDefeatText, 0
+	loadtrainer BLAINE, BLAINE2
+	startbattle
+	reloadmapafterbattle
+    end
+
+BlaineText_AskRematch:
+	text "Want to have a"
+	line "rematch with me?"
+	done
+
+BlaineText_AskRematchTeam:
+	text "Do you want to"
+	line "face me at full?"
+	cont "strength?"
+	done
+
+BlaineText_RematchDefeatText:
+	text "You win again."
+	done
 
 SeafoamGymGuideScript:
 	faceplayer

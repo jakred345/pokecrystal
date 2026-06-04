@@ -67,11 +67,62 @@ CianwoodGymChuckScript:
 	end
 
 .AlreadyGotTM:
+	checkevent EVENT_BEAT_CHUCK
+    iftrue .ChuckRematch
 	writetext ChuckAfterText
 	waitbutton
 .BagFull:
 	closetext
 	end
+
+.ChuckRematch:
+    writetext ChuckText_AskRematch
+    yesorno
+    iftrue .ChuckRematchSelection
+    closetext
+    end
+
+.ChuckRematchSelection:
+    checkevent EVENT_OPENED_MT_SILVER
+    iftrue .ChuckRematchTeamSelection
+    sjump .ChuckStartStandardRematch
+    
+.ChuckRematchTeamSelection
+    writetext ChuckText_AskRematchTeam
+    yesorno
+    iftrue .ChuckStartFinalRematch
+    sjump .ChuckStartStandardRematch
+
+.ChuckStartStandardRematch
+    closetext
+	winlosstext ChuckText_RematchDefeatText, 0
+	loadtrainer CHUCK, CHUCK1
+	startbattle
+	reloadmapafterbattle
+    end
+
+.ChuckStartFinalRematch
+    closetext
+	winlosstext ChuckText_RematchDefeatText, 0
+	loadtrainer CHUCK, CHUCK2
+	startbattle
+	reloadmapafterbattle
+    end
+
+ChuckText_AskRematch:
+	text "Want to have a"
+	line "rematch with me?"
+	done
+
+ChuckText_AskRematchTeam:
+	text "Do you want to"
+	line "face me at full?"
+	cont "strength?"
+	done
+
+ChuckText_RematchDefeatText:
+	text "You win again."
+	done
 
 CianwoodGymActivateRockets:
 	ifequal 7, .RadioTowerRockets

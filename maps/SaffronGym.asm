@@ -39,10 +39,53 @@ SaffronGymSabrinaScript:
 	end
 
 .FightDone:
-	writetext SabrinaFightDoneText
-	waitbutton
-	closetext
-	end
+	writetext SabrinaText_AskRematch
+    yesorno
+    iftrue .SabrinaRematchSelection
+    closetext
+    end
+
+.SabrinaRematchSelection:
+    checkevent EVENT_OPENED_MT_SILVER
+    iftrue .SabrinaRematchTeamSelection
+    sjump .SabrinaStartStandardRematch
+    
+.SabrinaRematchTeamSelection
+    writetext SabrinaText_AskRematchTeam
+    yesorno
+    iftrue .SabrinaStartFinalRematch
+    sjump .SabrinaStartStandardRematch
+
+.SabrinaStartStandardRematch
+    closetext
+	winlosstext SabrinaText_RematchDefeatText, 0
+	loadtrainer SABRINA, SABRINA1
+	startbattle
+	reloadmapafterbattle
+    end
+
+.SabrinaStartFinalRematch
+    closetext
+	winlosstext SabrinaText_RematchDefeatText, 0
+	loadtrainer SABRINA, SABRINA2
+	startbattle
+	reloadmapafterbattle
+    end
+
+SabrinaText_AskRematch:
+	text "Want to have a"
+	line "rematch with me?"
+	done
+
+SabrinaText_AskRematchTeam:
+	text "Do you want to"
+	line "face me at full?"
+	cont "strength?"
+	done
+
+SabrinaText_RematchDefeatText:
+	text "You win again."
+	done
 
 TrainerMediumRebecca:
 	trainer MEDIUM, REBECCA, EVENT_BEAT_MEDIUM_REBECCA, MediumRebeccaSeenText, MediumRebeccaBeatenText, 0, .Script

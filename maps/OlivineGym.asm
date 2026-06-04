@@ -41,11 +41,62 @@ OlivineGymJasmineScript:
 	end
 
 .GotIronTail:
+	checkevent EVENT_BEAT_JASMINE
+    iftrue .JasmineRematch
 	writetext Jasmine_GoodLuck
 	waitbutton
 .NoRoomForIronTail:
 	closetext
 	end
+
+.JasmineRematch:
+    writetext JasmineText_AskRematch
+    yesorno
+    iftrue .JasmineRematchSelection
+    closetext
+    end
+
+.JasmineRematchSelection:
+    checkevent EVENT_OPENED_MT_SILVER
+    iftrue .JasmineRematchTeamSelection
+    sjump .JasmineStartStandardRematch
+    
+.JasmineRematchTeamSelection
+    writetext JasmineText_AskRematchTeam
+    yesorno
+    iftrue .JasmineStartFinalRematch
+    sjump .JasmineStartStandardRematch
+
+.JasmineStartStandardRematch
+    closetext
+	winlosstext JasmineText_RematchDefeatText, 0
+	loadtrainer JASMINE, JASMINE1
+	startbattle
+	reloadmapafterbattle
+    end
+
+.JasmineStartFinalRematch
+    closetext
+	winlosstext JasmineText_RematchDefeatText, 0
+	loadtrainer JASMINE, JASMINE2
+	startbattle
+	reloadmapafterbattle
+    end
+
+JasmineText_AskRematch:
+	text "Want to have a"
+	line "rematch with me?"
+	done
+
+JasmineText_AskRematchTeam:
+	text "Do you want to"
+	line "face me at full?"
+	cont "strength?"
+	done
+
+JasmineText_RematchDefeatText:
+	text "You win again."
+	done
 
 OlivineGymActivateRockets:
 	ifequal 7, .RadioTowerRockets

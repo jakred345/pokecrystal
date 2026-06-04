@@ -51,11 +51,62 @@ MahoganyGymPryceScript:
 	end
 
 PryceScript_Defeat:
+	checkevent EVENT_BEAT_PRYCE
+    iftrue .PryceRematch
 	writetext PryceText_CherishYourPokemon
 	waitbutton
 MahoganyGym_NoRoomForIcyWind:
 	closetext
 	end
+
+.PryceRematch:
+    writetext PryceText_AskRematch
+    yesorno
+    iftrue .PryceRematchSelection
+    closetext
+    end
+
+.PryceRematchSelection:
+    checkevent EVENT_OPENED_MT_SILVER
+    iftrue .PryceRematchTeamSelection
+    sjump .PryceStartStandardRematch
+    
+.PryceRematchTeamSelection
+    writetext PryceText_AskRematchTeam
+    yesorno
+    iftrue .PryceStartFinalRematch
+    sjump .PryceStartStandardRematch
+
+.PryceStartStandardRematch
+    closetext
+	winlosstext PryceText_RematchDefeatText, 0
+	loadtrainer PRYCE, PRYCE1
+	startbattle
+	reloadmapafterbattle
+    end
+
+.PryceStartFinalRematch
+    closetext
+	winlosstext PryceText_RematchDefeatText, 0
+	loadtrainer PRYCE, PRYCE2
+	startbattle
+	reloadmapafterbattle
+    end
+
+PryceText_AskRematch:
+	text "Want to have a"
+	line "rematch with me?"
+	done
+
+PryceText_AskRematchTeam:
+	text "Do you want to"
+	line "face me at full?"
+	cont "strength?"
+	done
+
+PryceText_RematchDefeatText:
+	text "You win again."
+	done
 
 MahoganyGymActivateRockets:
 	ifequal 7, .RadioTowerRockets

@@ -42,10 +42,61 @@ CeladonGymErikaScript:
 	iffalse .GotGigaDrain
 	setevent EVENT_GOT_TM19_GIGA_DRAIN
 .GotGigaDrain:
+	checkevent EVENT_BEAT_ERIKA
+    iftrue .ErikaRematch
 	writetext ErikaAfterBattleText
 	waitbutton
 	closetext
 	end
+
+.ErikaRematch:
+    writetext ErikaText_AskRematch
+    yesorno
+    iftrue .ErikaRematchSelection
+    closetext
+    end
+
+.ErikaRematchSelection:
+    checkevent EVENT_OPENED_MT_SILVER
+    iftrue .ErikaRematchTeamSelection
+    sjump .ErikaStartStandardRematch
+    
+.ErikaRematchTeamSelection
+    writetext ErikaText_AskRematchTeam
+    yesorno
+    iftrue .ErikaStartFinalRematch
+    sjump .ErikaStartStandardRematch
+
+.ErikaStartStandardRematch
+    closetext
+	winlosstext ErikaText_RematchDefeatText, 0
+	loadtrainer ERIKA, ERIKA1
+	startbattle
+	reloadmapafterbattle
+    end
+
+.ErikaStartFinalRematch
+    closetext
+	winlosstext ErikaText_RematchDefeatText, 0
+	loadtrainer ERIKA, ERIKA2
+	startbattle
+	reloadmapafterbattle
+    end
+
+ErikaText_AskRematch:
+	text "Want to have a"
+	line "rematch with me?"
+	done
+
+ErikaText_AskRematchTeam:
+	text "Do you want to"
+	line "face me at full?"
+	cont "strength?"
+	done
+
+ErikaText_RematchDefeatText:
+	text "You win again."
+	done
 
 TrainerLassMichelle:
 	trainer LASS, MICHELLE, EVENT_BEAT_LASS_MICHELLE, LassMichelleSeenText, LassMichelleBeatenText, 0, .Script

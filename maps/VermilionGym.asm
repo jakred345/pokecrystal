@@ -37,10 +37,53 @@ VermilionGymSurgeScript:
 	end
 
 .FightDone:
-	writetext LtSurgeFightDoneText
-	waitbutton
-	closetext
-	end
+	writetext LtSurgeText_AskRematch
+    yesorno
+    iftrue .LtSurgeRematchSelection
+    closetext
+    end
+
+.LtSurgeRematchSelection:
+    checkevent EVENT_OPENED_MT_SILVER
+    iftrue .LtSurgeRematchTeamSelection
+    sjump .LtSurgeStartStandardRematch
+    
+.LtSurgeRematchTeamSelection
+    writetext LtSurgeText_AskRematchTeam
+    yesorno
+    iftrue .LtSurgeStartFinalRematch
+    sjump .LtSurgeStartStandardRematch
+
+.LtSurgeStartStandardRematch
+    closetext
+	winlosstext LtSurgeText_RematchDefeatText, 0
+	loadtrainer LT_SURGE, LT_SURGE1
+	startbattle
+	reloadmapafterbattle
+    end
+
+.LtSurgeStartFinalRematch
+    closetext
+	winlosstext LtSurgeText_RematchDefeatText, 0
+	loadtrainer LT_SURGE, LT_SURGE2
+	startbattle
+	reloadmapafterbattle
+    end
+
+LtSurgeText_AskRematch:
+	text "Want to have a"
+	line "rematch with me?"
+	done
+
+LtSurgeText_AskRematchTeam:
+	text "Do you want to"
+	line "face me at full?"
+	cont "strength?"
+	done
+
+LtSurgeText_RematchDefeatText:
+	text "You win again."
+	done
 
 TrainerGentlemanGregory:
 	trainer GENTLEMAN, GREGORY, EVENT_BEAT_GENTLEMAN_GREGORY, GentlemanGregorySeenText, GentlemanGregoryBeatenText, 0, .Script

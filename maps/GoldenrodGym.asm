@@ -73,11 +73,62 @@ GoldenrodGymWhitneyScript:
 	end
 
 .GotAttract:
+	checkevent EVENT_BEAT_WHITNEY
+    iftrue .WhitneyRematch
 	writetext WhitneyGoodCryText
 	waitbutton
 .NoRoomForAttract:
 	closetext
 	end
+
+.WhitneyRematch:
+    writetext WhitneyText_AskRematch
+    yesorno
+    iftrue .WhitneyRematchSelection
+    closetext
+    end
+
+.WhitneyRematchSelection:
+    checkevent EVENT_OPENED_MT_SILVER
+    iftrue .WhitneyRematchTeamSelection
+    sjump .WhitneyStartStandardRematch
+    
+.WhitneyRematchTeamSelection
+    writetext WhitneyText_AskRematchTeam
+    yesorno
+    iftrue .WhitneyStartFinalRematch
+    sjump .WhitneyStartStandardRematch
+
+.WhitneyStartStandardRematch
+    closetext
+	winlosstext WhitneyText_RematchDefeatText, 0
+	loadtrainer WHITNEY, WHITNEY1
+	startbattle
+	reloadmapafterbattle
+    end
+
+.WhitneyStartFinalRematch
+    closetext
+	winlosstext WhitneyText_RematchDefeatText, 0
+	loadtrainer WHITNEY, WHITNEY2
+	startbattle
+	reloadmapafterbattle
+    end
+
+WhitneyText_AskRematch:
+	text "Want to have a"
+	line "rematch with me?"
+	done
+
+WhitneyText_AskRematchTeam:
+	text "Do you want to"
+	line "face me at full?"
+	cont "strength?"
+	done
+
+WhitneyText_RematchDefeatText:
+	text "You win again."
+	done
 
 GoldenrodGymActivateRockets:
 	ifequal 7, .RadioTowerRockets

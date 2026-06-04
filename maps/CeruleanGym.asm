@@ -60,7 +60,7 @@ CeruleanGymMistyScript:
 	faceplayer
 	opentext
 	checkflag ENGINE_CASCADEBADGE
-	iftrue .FightDone
+	iftrue .MistyRematch
 	writetext MistyIntroText
 	waitbutton
 	closetext
@@ -82,6 +82,55 @@ CeruleanGymMistyScript:
 	waitbutton
 	closetext
 	end
+
+.MistyRematch:
+    writetext MistyText_AskRematch
+    yesorno
+    iftrue .MistyRematchSelection
+    closetext
+    end
+
+.MistyRematchSelection:
+    checkevent EVENT_OPENED_MT_SILVER
+    iftrue .MistyRematchTeamSelection
+    sjump .MistyStartStandardRematch
+    
+.MistyRematchTeamSelection
+    writetext MistyText_AskRematchTeam
+    yesorno
+    iftrue .MistyStartFinalRematch
+    sjump .MistyStartStandardRematch
+
+.MistyStartStandardRematch
+    closetext
+	winlosstext MistyText_RematchDefeatText, 0
+	loadtrainer MISTY, MISTY1
+	startbattle
+	reloadmapafterbattle
+    end
+
+.MistyStartFinalRematch
+    closetext
+	winlosstext MistyText_RematchDefeatText, 0
+	loadtrainer MISTY, MISTY2
+	startbattle
+	reloadmapafterbattle
+    end
+
+MistyText_AskRematch:
+	text "Want to have a"
+	line "rematch with me?"
+	done
+
+MistyText_AskRematchTeam:
+	text "Do you want to"
+	line "face me at full?"
+	cont "strength?"
+	done
+
+MistyText_RematchDefeatText:
+	text "You win again."
+	done
 
 TrainerSwimmerfDiana:
 	trainer SWIMMERF, DIANA, EVENT_BEAT_SWIMMERF_DIANA, SwimmerfDianaSeenText, SwimmerfDianaBeatenText, 0, .Script

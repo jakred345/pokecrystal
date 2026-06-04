@@ -31,10 +31,53 @@ ViridianGymBlueScript:
 	end
 
 .FightDone:
-	writetext LeaderBlueEpilogueText
-	waitbutton
-	closetext
-	end
+	writetext BlueText_AskRematch
+    yesorno
+    iftrue .BlueRematchSelection
+    closetext
+    end
+
+.BlueRematchSelection:
+    checkevent EVENT_OPENED_MT_SILVER
+    iftrue .BlueRematchTeamSelection
+    sjump .BlueStartStandardRematch
+    
+.BlueRematchTeamSelection
+    writetext BlueText_AskRematchTeam
+    yesorno
+    iftrue .BlueStartFinalRematch
+    sjump .BlueStartStandardRematch
+
+.BlueStartStandardRematch
+    closetext
+	winlosstext BlueText_RematchDefeatText, 0
+	loadtrainer BLUE, BLUE1
+	startbattle
+	reloadmapafterbattle
+    end
+
+.BlueStartFinalRematch
+    closetext
+	winlosstext BlueText_RematchDefeatText, 0
+	loadtrainer BLUE, BLUE2
+	startbattle
+	reloadmapafterbattle
+    end
+
+BlueText_AskRematch:
+	text "Want to have a"
+	line "rematch with me?"
+	done
+
+BlueText_AskRematchTeam:
+	text "Do you want to"
+	line "face me at full?"
+	cont "strength?"
+	done
+
+BlueText_RematchDefeatText:
+	text "You win again."
+	done
 
 ViridianGymGuideScript:
 	faceplayer

@@ -52,10 +52,61 @@ FuchsiaGymJanineScript:
 	iffalse .AfterTM
 	setevent EVENT_GOT_TM06_TOXIC
 .AfterTM:
+	checkevent EVENT_BEAT_JANINE
+    iftrue .JanineRematch
 	writetext JanineText_ApplyMyself
 	waitbutton
 	closetext
 	end
+
+.JanineRematch:
+    writetext JanineText_AskRematch
+    yesorno
+    iftrue .JanineRematchSelection
+    closetext
+    end
+
+.JanineRematchSelection:
+    checkevent EVENT_OPENED_MT_SILVER
+    iftrue .JanineRematchTeamSelection
+    sjump .JanineStartStandardRematch
+    
+.JanineRematchTeamSelection
+    writetext JanineText_AskRematchTeam
+    yesorno
+    iftrue .JanineStartFinalRematch
+    sjump .JanineStartStandardRematch
+
+.JanineStartStandardRematch
+    closetext
+	winlosstext JanineText_RematchDefeatText, 0
+	loadtrainer JANINE, JANINE1
+	startbattle
+	reloadmapafterbattle
+    end
+
+.JanineStartFinalRematch
+    closetext
+	winlosstext JanineText_RematchDefeatText, 0
+	loadtrainer JANINE, JANINE2
+	startbattle
+	reloadmapafterbattle
+    end
+
+JanineText_AskRematch:
+	text "Want to have a"
+	line "rematch with me?"
+	done
+
+JanineText_AskRematchTeam:
+	text "Do you want to"
+	line "face me at full?"
+	cont "strength?"
+	done
+
+JanineText_RematchDefeatText:
+	text "You win again."
+	done
 
 LassAliceScript:
 	checkevent EVENT_BEAT_LASS_ALICE
