@@ -151,29 +151,6 @@ TrainerHikerParry:
 	loadvar VAR_CALLERID, PHONE_HIKER_PARRY
 	endifjustbattled
 	opentext
-	checkflag ENGINE_PARRY_READY_FOR_REMATCH
-	iftrue .WantsBattle
-	checkcellnum PHONE_HIKER_PARRY
-	iftrue Route45NumberAcceptedM
-	checkevent EVENT_PARRY_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskedAlready
-	writetext HikerParryAfterBattleText
-	promptbutton
-	setevent EVENT_PARRY_ASKED_FOR_PHONE_NUMBER
-	scall Route45AskNumber1M
-	sjump .AskForNumber
-
-.AskedAlready:
-	scall Route45AskNumber2M
-.AskForNumber:
-	askforphonenumber PHONE_HIKER_PARRY
-	ifequal PHONE_CONTACTS_FULL, Route45PhoneFullM
-	ifequal PHONE_CONTACT_REFUSED, Route45NumberDeclinedM
-	gettrainername STRING_BUFFER_3, HIKER, PARRY1
-	scall Route45RegisteredNumberM
-	sjump Route45NumberAcceptedM
-
-.WantsBattle:
 	scall Route45RematchM
 	winlosstext HikerParry3BeatenText, 0
 	readmem wParryFightCount

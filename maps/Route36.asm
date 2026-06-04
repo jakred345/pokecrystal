@@ -171,31 +171,6 @@ TrainerSchoolboyAlan1:
 	loadvar VAR_CALLERID, PHONE_SCHOOLBOY_ALAN
 	endifjustbattled
 	opentext
-	checkflag ENGINE_ALAN_READY_FOR_REMATCH
-	iftrue .ChooseRematch
-	checkflag ENGINE_ALAN_HAS_FIRE_STONE
-	iftrue .GiveFireStone
-	checkcellnum PHONE_SCHOOLBOY_ALAN
-	iftrue .NumberAccepted
-	checkevent EVENT_ALAN_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskAgainForPhoneNumber
-	writetext SchoolboyAlanBooksText
-	promptbutton
-	setevent EVENT_ALAN_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber1
-	sjump .ContinueAskForPhoneNumber
-
-.AskAgainForPhoneNumber:
-	scall .AskNumber2
-.ContinueAskForPhoneNumber:
-	askforphonenumber PHONE_SCHOOLBOY_ALAN
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
-	gettrainername STRING_BUFFER_3, SCHOOLBOY, ALAN1
-	scall .RegisteredNumber
-	sjump .NumberAccepted
-
-.ChooseRematch:
 	scall .Rematch
 	winlosstext SchoolboyAlan1BeatenText, 0
 	readmem wAlanFightCount

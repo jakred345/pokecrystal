@@ -31,29 +31,6 @@ TrainerCooltrainermGaven3:
 	loadvar VAR_CALLERID, PHONE_COOLTRAINERM_GAVEN
 	endifjustbattled
 	opentext
-	checkflag ENGINE_GAVEN_READY_FOR_REMATCH
-	iftrue .WantsBattle
-	checkcellnum PHONE_COOLTRAINERM_GAVEN
-	iftrue .NumberAccepted
-	checkevent EVENT_GAVEN_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskedAlready
-	writetext CooltrainermGavenAfterText
-	promptbutton
-	setevent EVENT_GAVEN_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber1
-	sjump .AskForNumber
-
-.AskedAlready:
-	scall .AskNumber2
-.AskForNumber:
-	askforphonenumber PHONE_COOLTRAINERM_GAVEN
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
-	gettrainername STRING_BUFFER_3, COOLTRAINERM, GAVEN3
-	scall .RegisteredNumber
-	sjump .NumberAccepted
-
-.WantsBattle:
 	scall .Rematch
 	winlosstext CooltrainermGaven3BeatenText, 0
 	readmem wGavenFightCount
@@ -135,29 +112,6 @@ TrainerCooltrainerfBeth1:
 	loadvar VAR_CALLERID, PHONE_COOLTRAINERF_BETH
 	endifjustbattled
 	opentext
-	checkflag ENGINE_BETH_READY_FOR_REMATCH
-	iftrue .WantsBattle
-	checkcellnum PHONE_COOLTRAINERF_BETH
-	iftrue .NumberAccepted
-	checkevent EVENT_BETH_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskedAlready
-	writetext CooltrainerfBethAfterText
-	promptbutton
-	setevent EVENT_BETH_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber1
-	sjump .AskForNumber
-
-.AskedAlready:
-	scall .AskNumber2
-.AskForNumber:
-	askforphonenumber PHONE_COOLTRAINERF_BETH
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
-	gettrainername STRING_BUFFER_3, COOLTRAINERF, BETH1
-	scall .RegisteredNumber
-	sjump .NumberAccepted
-
-.WantsBattle:
 	scall .Rematch
 	winlosstext CooltrainerfBeth1BeatenText, 0
 	readmem wBethFightCount

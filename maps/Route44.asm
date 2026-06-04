@@ -23,29 +23,6 @@ TrainerBirdKeeperVance1:
 	loadvar VAR_CALLERID, PHONE_BIRDKEEPER_VANCE
 	endifjustbattled
 	opentext
-	checkflag ENGINE_VANCE_READY_FOR_REMATCH
-	iftrue .WantsBattle
-	checkcellnum PHONE_BIRDKEEPER_VANCE
-	iftrue Route44NumberAcceptedM
-	checkevent EVENT_VANCE_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskedAlready
-	writetext BirdKeeperVanceLegendaryBirdsText
-	promptbutton
-	setevent EVENT_VANCE_ASKED_FOR_PHONE_NUMBER
-	scall Route44AskNumber1M
-	sjump .AskForNumber
-
-.AskedAlready:
-	scall Route44AskNumber2M
-.AskForNumber:
-	askforphonenumber PHONE_BIRDKEEPER_VANCE
-	ifequal PHONE_CONTACTS_FULL, Route44PhoneFullM
-	ifequal PHONE_CONTACT_REFUSED, Route44NumberDeclinedM
-	gettrainername STRING_BUFFER_3, BIRD_KEEPER, VANCE1
-	scall Route44RegisteredNumberM
-	sjump Route44NumberAcceptedM
-
-.WantsBattle:
 	scall Route44RematchM
 	winlosstext BirdKeeperVance1BeatenText, 0
 	readmem wVanceFightCount
@@ -165,31 +142,6 @@ TrainerFisherWilton1:
 	loadvar VAR_CALLERID, PHONE_FISHER_WILTON
 	endifjustbattled
 	opentext
-	checkflag ENGINE_WILTON_READY_FOR_REMATCH
-	iftrue .WantsBattle
-	checkflag ENGINE_WILTON_HAS_ITEM
-	iftrue .HasItem
-	checkcellnum PHONE_FISHER_WILTON
-	iftrue Route44NumberAcceptedM
-	checkevent EVENT_WILTON_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskedAlready
-	writetext FisherWiltonHugePoliwagText
-	promptbutton
-	setevent EVENT_WILTON_ASKED_FOR_PHONE_NUMBER
-	scall Route44AskNumber1M
-	sjump .AskForNumber
-
-.AskedAlready:
-	scall Route44AskNumber2M
-.AskForNumber:
-	askforphonenumber PHONE_FISHER_WILTON
-	ifequal PHONE_CONTACTS_FULL, Route44PhoneFullM
-	ifequal PHONE_CONTACT_REFUSED, Route44NumberDeclinedM
-	gettrainername STRING_BUFFER_3, FISHER, WILTON1
-	scall Route44RegisteredNumberM
-	sjump Route44NumberAcceptedM
-
-.WantsBattle:
 	scall Route44RematchM
 	winlosstext FisherWilton1BeatenText, 0
 	readmem wWiltonFightCount

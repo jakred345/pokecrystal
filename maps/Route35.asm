@@ -133,31 +133,6 @@ TrainerBugCatcherArnie:
 	loadvar VAR_CALLERID, PHONE_BUG_CATCHER_ARNIE
 	endifjustbattled
 	opentext
-	checkflag ENGINE_ARNIE_READY_FOR_REMATCH
-	iftrue .WantsBattle
-	checkflag ENGINE_YANMA_SWARM
-	iftrue .YanmaSwarming
-	checkcellnum PHONE_BUG_CATCHER_ARNIE
-	iftrue Route35NumberAcceptedM
-	checkevent EVENT_ARNIE_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskedAlready
-	writetext BugCatcherArnieAfterBattleText
-	promptbutton
-	setevent EVENT_ARNIE_ASKED_FOR_PHONE_NUMBER
-	scall Route35AskNumber1M
-	sjump .AskForNumber
-
-.AskedAlready:
-	scall Route35AskNumber2M
-.AskForNumber:
-	askforphonenumber PHONE_BUG_CATCHER_ARNIE
-	ifequal PHONE_CONTACTS_FULL, Route35PhoneFullM
-	ifequal PHONE_CONTACT_REFUSED, Route35NumberDeclinedM
-	gettrainername STRING_BUFFER_3, BUG_CATCHER, ARNIE1
-	scall Route35RegisteredNumberM
-	sjump Route35NumberAcceptedM
-
-.WantsBattle:
 	scall Route35RematchM
 	winlosstext BugCatcherArnieBeatenText, 0
 	readmem wArnieFightCount
@@ -239,8 +214,6 @@ TrainerOfficerDirk:
 	opentext
 	checktime NITE
 	iffalse .NotNight
-	checkevent EVENT_BEAT_OFFICER_DIRK
-	iftrue .AfterBattle
 	playmusic MUSIC_OFFICER_ENCOUNTER
 	writetext OfficerDirkSeenText
 	waitbutton

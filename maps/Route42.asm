@@ -41,31 +41,6 @@ TrainerFisherTully:
 	loadvar VAR_CALLERID, PHONE_FISHER_TULLY
 	endifjustbattled
 	opentext
-	checkflag ENGINE_TULLY_READY_FOR_REMATCH
-	iftrue .WantsBattle
-	checkflag ENGINE_TULLY_HAS_WATER_STONE
-	iftrue .HasWaterStone
-	checkcellnum PHONE_FISHER_TULLY
-	iftrue .NumberAccepted
-	checkevent EVENT_TULLY_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskedAlready
-	writetext FisherTullyAfterBattleText
-	promptbutton
-	setevent EVENT_TULLY_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber1
-	sjump .AskForNumber
-
-.AskedAlready:
-	scall .AskNumber2
-.AskForNumber:
-	askforphonenumber PHONE_FISHER_TULLY
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
-	gettrainername STRING_BUFFER_3, FISHER, TULLY1
-	scall .RegisteredNumber
-	sjump .NumberAccepted
-
-.WantsBattle:
 	scall .Rematch
 	winlosstext FisherTullyBeatenText, 0
 	readmem wTullyFightCount
@@ -177,8 +152,13 @@ TrainerHikerBenjamin:
 .Script:
 	endifjustbattled
 	opentext
-	writetext HikerBenjaminAfterBattleText
+	writetext HikerBenjaminSeenText
 	waitbutton
+	closetext
+	winlosstext HikerBenjaminBeatenText, 0
+	loadtrainer HIKER, BENJAMIN
+	startbattle
+	reloadmapafterbattle
 	closetext
 	end
 

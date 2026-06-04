@@ -92,31 +92,6 @@ TrainerCamperTodd1:
 	loadvar VAR_CALLERID, PHONE_CAMPER_TODD
 	endifjustbattled
 	opentext
-	checkflag ENGINE_TODD_READY_FOR_REMATCH
-	iftrue .Rematch
-	checkflag ENGINE_GOLDENROD_DEPT_STORE_SALE_IS_ON
-	iftrue .SaleIsOn
-	checkcellnum PHONE_CAMPER_TODD
-	iftrue .NumberAccepted
-	checkevent EVENT_TODD_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskAgain
-	writetext CamperTodd1AfterText
-	promptbutton
-	setevent EVENT_TODD_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber
-	sjump .FinishAsk
-
-.AskAgain:
-	scall .AskNumber2
-.FinishAsk:
-	askforphonenumber PHONE_CAMPER_TODD
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
-	gettrainername STRING_BUFFER_3, CAMPER, TODD1
-	scall .RegisteredNumber
-	sjump .NumberAccepted
-
-.Rematch:
 	scall .RematchStd
 	winlosstext CamperTodd1BeatenText, 0
 	readmem wToddFightCount
@@ -217,31 +192,6 @@ TrainerPicnickerGina1:
 	loadvar VAR_CALLERID, PHONE_PICNICKER_GINA
 	endifjustbattled
 	opentext
-	checkflag ENGINE_GINA_READY_FOR_REMATCH
-	iftrue .Rematch
-	checkflag ENGINE_GINA_HAS_LEAF_STONE
-	iftrue .LeafStone
-	checkcellnum PHONE_PICNICKER_GINA
-	iftrue .NumberAccepted
-	checkevent EVENT_GINA_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskAgain
-	writetext PicnickerGina1AfterText
-	promptbutton
-	setevent EVENT_GINA_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber1
-	sjump .FinishAsk
-
-.AskAgain:
-	scall .AskNumber2
-.FinishAsk:
-	askforphonenumber PHONE_PICNICKER_GINA
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
-	gettrainername STRING_BUFFER_3, PICNICKER, GINA1
-	scall .RegisteredNumber
-	sjump .NumberAccepted
-
-.Rematch:
 	scall .RematchStd
 	winlosstext PicnickerGina1BeatenText, 0
 	readmem wGinaFightCount

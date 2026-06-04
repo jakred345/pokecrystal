@@ -30,8 +30,13 @@ TrainerCamperSpencer:
 .Script:
 	endifjustbattled
 	opentext
-	writetext CamperSpencerAfterBattleText
+	writetext CamperSpencerSeenText
 	waitbutton
+	closetext
+	winlosstext CamperSpencerBeatenText, 0
+	loadtrainer CAMPER, SPENCER
+	startbattle
+	reloadmapafterbattle
 	closetext
 	end
 
@@ -53,29 +58,6 @@ TrainerPokemaniacBrent:
 	loadvar VAR_CALLERID, PHONE_POKEMANIAC_BRENT
 	endifjustbattled
 	opentext
-	checkflag ENGINE_BRENT_READY_FOR_REMATCH
-	iftrue .WantsBattle
-	checkcellnum PHONE_POKEMANIAC_BRENT
-	iftrue .NumberAccepted
-	checkevent EVENT_BRENT_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskedAlready
-	writetext PokemaniacBrentAfterBattleText
-	promptbutton
-	setevent EVENT_BRENT_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber1
-	sjump .AskForNumber
-
-.AskedAlready:
-	scall .AskNumber2
-.AskForNumber:
-	askforphonenumber PHONE_POKEMANIAC_BRENT
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
-	gettrainername STRING_BUFFER_3, POKEMANIAC, BRENT1
-	scall .RegisteredNumber
-	sjump .NumberAccepted
-
-.WantsBattle:
 	scall .Rematch
 	winlosstext PokemaniacBrentBeatenText, 0
 	readmem wBrentFightCount
@@ -180,33 +162,6 @@ TrainerPicnickerTiffany:
 	loadvar VAR_CALLERID, PHONE_PICNICKER_TIFFANY
 	endifjustbattled
 	opentext
-	checkflag ENGINE_TIFFANY_READY_FOR_REMATCH
-	iftrue .WantsBattle
-	checkflag ENGINE_TIFFANY_HAS_PINK_BOW
-	iftrue .HasPinkBow
-	checkcellnum PHONE_PICNICKER_TIFFANY
-	iftrue .NumberAccepted
-	checkpoke CLEFAIRY
-	iffalse .NoClefairy
-	checkevent EVENT_TIFFANY_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskedAlready
-	writetext PicnickerTiffanyWantsPicnicText
-	promptbutton
-	setevent EVENT_TIFFANY_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber1
-	sjump .AskForNumber
-
-.AskedAlready:
-	scall .AskNumber2
-.AskForNumber:
-	askforphonenumber PHONE_PICNICKER_TIFFANY
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
-	gettrainername STRING_BUFFER_3, PICNICKER, TIFFANY3
-	scall .RegisteredNumber
-	sjump .NumberAccepted
-
-.WantsBattle:
 	scall .Rematch
 	winlosstext PicnickerTiffanyBeatenText, 0
 	readmem wTiffanyFightCount

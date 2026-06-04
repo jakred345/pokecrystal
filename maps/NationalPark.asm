@@ -76,29 +76,6 @@ TrainerSchoolboyJack1:
 	loadvar VAR_CALLERID, PHONE_SCHOOLBOY_JACK
 	endifjustbattled
 	opentext
-	checkflag ENGINE_JACK_READY_FOR_REMATCH
-	iftrue .Rematch
-	checkcellnum PHONE_SCHOOLBOY_JACK
-	iftrue .NumberAccepted
-	checkevent EVENT_JACK_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskAgain
-	writetext SchoolboyJackTradeMonText
-	promptbutton
-	setevent EVENT_JACK_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber1
-	sjump .RequestNumber
-
-.AskAgain:
-	scall .AskNumber2
-.RequestNumber:
-	askforphonenumber PHONE_SCHOOLBOY_JACK
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
-	gettrainername STRING_BUFFER_3, SCHOOLBOY, JACK1
-	scall .RegisteredNumber
-	sjump .NumberAccepted
-
-.Rematch:
 	scall .RematchStd
 	winlosstext SchoolboyJack1BeatenText, 0
 	readmem wJackFightCount

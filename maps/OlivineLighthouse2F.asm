@@ -25,27 +25,6 @@ TrainerSailorHuey:
 	loadvar VAR_CALLERID, PHONE_SAILOR_HUEY
 	endifjustbattled
 	opentext
-	checkflag ENGINE_HUEY_READY_FOR_REMATCH
-	iftrue .WantsBattle
-	checkcellnum PHONE_SAILOR_HUEY
-	iftrue .NumberAccepted
-	checkevent EVENT_HUEY_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskedBefore
-	setevent EVENT_HUEY_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber1
-	sjump .AskForNumber
-
-.AskedBefore:
-	scall .AskNumber2
-.AskForNumber:
-	askforphonenumber PHONE_SAILOR_HUEY
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
-	gettrainername STRING_BUFFER_3, SAILOR, HUEY1
-	scall .RegisteredNumber
-	sjump .NumberAccepted
-
-.WantsBattle:
 	scall .Rematch
 	winlosstext SailorHueyBeatenText, 0
 	readmem wHueyFightCount

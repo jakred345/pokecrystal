@@ -29,29 +29,6 @@ TrainerPicnickerErin1:
 	loadvar VAR_CALLERID, PHONE_PICNICKER_ERIN
 	endifjustbattled
 	opentext
-	checkflag ENGINE_ERIN_READY_FOR_REMATCH
-	iftrue .WantsBattle
-	checkcellnum PHONE_PICNICKER_ERIN
-	iftrue Route46NumberAcceptedF
-	checkevent EVENT_ERIN_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskedAlready
-	writetext PicnickerErinAfterBattleText
-	promptbutton
-	setevent EVENT_ERIN_ASKED_FOR_PHONE_NUMBER
-	scall Route46AskNumber1F
-	sjump .AskForNumber
-
-.AskedAlready:
-	scall Route46AskNumber2F
-.AskForNumber:
-	askforphonenumber PHONE_PICNICKER_ERIN
-	ifequal PHONE_CONTACTS_FULL, Route46PhoneFullF
-	ifequal PHONE_CONTACT_REFUSED, Route46NumberDeclinedF
-	gettrainername STRING_BUFFER_3, PICNICKER, ERIN1
-	scall Route46RegisteredNumberF
-	sjump Route46NumberAcceptedF
-
-.WantsBattle:
 	scall Route46RematchF
 	winlosstext PicnickerErin1BeatenText, 0
 	readmem wErinFightCount
