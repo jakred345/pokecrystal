@@ -255,6 +255,9 @@ DEF KRIS EQU __trainer_class__
 	const LYRA_1_CHIKORITA
 	const LYRA_1_CYNDAQUIL
 	const LYRA_1_TOTODILE
+	const LYRA_2_CHIKORITA
+	const LYRA_2_CYNDAQUIL
+	const LYRA_2_TOTODILE
 
 	trainerclass BEAUTY ; 1d
 	const VICTORIA

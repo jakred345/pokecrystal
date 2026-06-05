@@ -674,6 +674,48 @@ CooltrainerfKateAfterText:
 	line "startled us."
 	done
 
+TrainerCooltrainerfLyra:
+	faceplayer
+	opentext
+	writetext CooltrainerfLyraSeenText
+	waitbutton
+	closetext
+	checkevent EVENT_GOT_TOTODILE_FROM_ELM
+	iftrue .Totodile
+	checkevent EVENT_GOT_CHIKORITA_FROM_ELM
+	iftrue .Chikorita
+	winlosstext CooltrainerfLyraBeatenText, 0
+    loadtrainer COOLTRAINERF, LYRA_2_CHIKORITA
+    startbattle
+	reloadmapafterbattle
+    opentext
+	writetext CooltrainerfLyraAfterBattleText
+	waitbutton
+	closetext
+    end
+
+.Totodile:
+	winlosstext CooltrainerfLyraBeatenText, 0
+    loadtrainer COOLTRAINERF, LYRA_2_CYNDAQUIL
+    startbattle
+	reloadmapafterbattle
+    opentext
+	writetext CooltrainerfLyraAfterBattleText
+	waitbutton
+	closetext
+    end
+
+.Chikorita:
+	winlosstext CooltrainerfLyraBeatenText, 0
+    loadtrainer COOLTRAINERF, LYRA_2_TOTODILE
+    startbattle
+	reloadmapafterbattle
+    opentext
+	writetext CooltrainerfLyraAfterBattleText
+	waitbutton
+	closetext
+    end
+
 Route34IlexForestSignText:
 	text "ILEX FOREST"
 	line "THROUGH THE GATE"
@@ -706,6 +748,21 @@ DayCareSignText:
 
 	para "LET US RAISE YOUR"
 	line "#MON FOR YOU!"
+	done
+
+CooltrainerfLyraSeenText:
+	text "I am a trainer"
+	line "trying to become"
+	cont "the champion."
+	done
+
+CooltrainerfLyraBeatenText:
+	text "Well Done!"
+	done
+
+CooltrainerfLyraAfterBattleText:
+	text "I have a new rival"
+	line "to defeat now."
 	done
 
 Route34_MapEvents:
@@ -741,3 +798,4 @@ Route34_MapEvents:
 	object_event  3, 48, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerfJenn, -1
 	object_event  6, 51, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerCooltrainerfKate, -1
 	object_event  7, 30, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route34Nugget, EVENT_ROUTE_34_NUGGET
+	object_event 13,  5, SPRITE_KRIS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, TrainerCooltrainerfLyra, -1
