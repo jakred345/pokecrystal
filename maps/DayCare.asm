@@ -70,6 +70,48 @@ DayCareLadyScript:
 	closetext
 	end
 
+Route34TrainerCooltrainerfLyra:
+	faceplayer
+	opentext
+	writetext Route34CooltrainerfLyraSeenText
+	waitbutton
+	closetext
+	checkevent EVENT_GOT_TOTODILE_FROM_ELM
+	iftrue .Totodile
+	checkevent EVENT_GOT_CHIKORITA_FROM_ELM
+	iftrue .Chikorita
+	winlosstext Route34CooltrainerfLyraBeatenText, 0
+    loadtrainer COOLTRAINERF, LYRA_2_CHIKORITA
+    startbattle
+	reloadmapafterbattle
+    opentext
+	writetext Route34CooltrainerfLyraAfterBattleText
+	waitbutton
+	closetext
+    end
+
+.Totodile:
+	winlosstext Route34CooltrainerfLyraBeatenText, 0
+    loadtrainer COOLTRAINERF, LYRA_2_CYNDAQUIL
+    startbattle
+	reloadmapafterbattle
+    opentext
+	writetext Route34CooltrainerfLyraAfterBattleText
+	waitbutton
+	closetext
+    end
+
+.Chikorita:
+	winlosstext Route34CooltrainerfLyraBeatenText, 0
+    loadtrainer COOLTRAINERF, LYRA_2_TOTODILE
+    startbattle
+	reloadmapafterbattle
+    opentext
+	writetext Route34CooltrainerfLyraAfterBattleText
+	waitbutton
+	closetext
+    end
+
 DayCareBookshelf:
 	jumpstd DifficultBookshelfScript
 
@@ -153,6 +195,21 @@ DayCareText_PartyFull:
 	line "this."
 	done
 
+Route34CooltrainerfLyraSeenText:
+	text "I am a trainer"
+	line "trying to become"
+	cont "the champion."
+	done
+
+Route34CooltrainerfLyraBeatenText:
+	text "Well Done!"
+	done
+
+Route34CooltrainerfLyraAfterBattleText:
+	text "I have a new rival"
+	line "to defeat now."
+	done
+
 DayCare_MapEvents:
 	db 0, 0 ; filler
 
@@ -171,3 +228,4 @@ DayCare_MapEvents:
 	def_object_events
 	object_event  2,  3, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DayCareManScript_Inside, EVENT_DAY_CARE_MAN_IN_DAY_CARE
 	object_event  5,  3, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, DayCareLadyScript, -1
+	object_event 0,  4, SPRITE_KRIS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route34TrainerCooltrainerfLyra, -1

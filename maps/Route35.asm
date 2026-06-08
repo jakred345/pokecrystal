@@ -212,8 +212,6 @@ TrainerFirebreatherWalt:
 TrainerOfficerDirk:
 	faceplayer
 	opentext
-	checktime NITE
-	iffalse .NotNight
 	playmusic MUSIC_OFFICER_ENCOUNTER
 	writetext OfficerDirkSeenText
 	waitbutton

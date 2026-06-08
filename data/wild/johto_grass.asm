@@ -344,7 +344,7 @@ JohtoGrassWildMons:
 	db 12, NIDORAN_M
 	db 12, NIDORAN_F
 	db 14, LEDYBA
-	db 13, ELEKID
+	db 13, SMOOCHUM
 	db 10, CHANSEY
 	db 10, DELIBIRD
 	db 10, DELIBIRD
@@ -360,7 +360,7 @@ JohtoGrassWildMons:
 	db 12, PSYDUCK
 	db 13, HOOTHOOT
 	db 14, SPINARAK
-	db 13, SMOOCHUM
+	db 13, ELEKID
 	db 10, CHANSEY
 	db 12, DELIBIRD
 	db 12, DELIBIRD
