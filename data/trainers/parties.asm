@@ -2059,6 +2059,8 @@ FisherGroup:
 	db 70, SLOWBRO, NO_ITEM, PSYCHIC_M, SURF, FIRE_BLAST, EARTHQUAKE
 	db -1 ; end
 
+SECTION "Enemy Trainer Parties 2", ROMX
+
 SwimmerMGroup:
 	; SWIMMERM (1)
 	db "HAROLD@", TRAINERTYPE_NORMAL
