@@ -258,6 +258,12 @@ DEF KRIS EQU __trainer_class__
 	const LYRA_2_CHIKORITA
 	const LYRA_2_CYNDAQUIL
 	const LYRA_2_TOTODILE
+	const LYRA_3_CHIKORITA
+	const LYRA_3_CYNDAQUIL
+	const LYRA_3_TOTODILE
+	const LEAF
+	const LORELEI
+	const AGATHA
 
 	trainerclass BEAUTY ; 1d
 	const VICTORIA
@@ -561,6 +567,8 @@ DEF KRIS EQU __trainer_class__
 	const EXECUTIVEM_2
 	const EXECUTIVEM_3
 	const EXECUTIVEM_4
+	const EXECUTIVEM_5
+	const EXECUTIVEM_6
 
 	trainerclass PSYCHIC_T ; 34
 	const NATHAN
