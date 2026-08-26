@@ -11,7 +11,7 @@ TrainerClassDVs:
 	dn  12, 12, 12, 12 ; CHUCK
 	dn  12, 12, 12, 12 ; CLAIR
 	dn 14, 14, 14, 14 ; RIVAL1
-	dn  9,  8,  8,  8 ; POKEMON_PROF
+	dn  15,  15,  15,  15 ; POKEMON_PROF
 	dn 13, 13, 13, 13 ; WILL
 	dn 13, 13, 13, 13 ; CAL
 	dn 13, 13, 13, 13 ; BRUNO

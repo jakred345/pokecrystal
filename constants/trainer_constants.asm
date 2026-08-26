@@ -78,6 +78,7 @@ DEF KRIS EQU __trainer_class__
 	const RIVAL1_5_TOTODILE
 
 	trainerclass POKEMON_PROF ; a
+	const OAK1
 
 	trainerclass WILL ; b
 	const WILL1
@@ -264,6 +265,12 @@ DEF KRIS EQU __trainer_class__
 	const LEAF
 	const LORELEI
 	const AGATHA
+	const LEAF2
+	const LORELEI2
+	const AGATHA2
+	const LYRA_4_CHIKORITA
+	const LYRA_4_CYNDAQUIL
+	const LYRA_4_TOTODILE
 
 	trainerclass BEAUTY ; 1d
 	const VICTORIA
@@ -569,6 +576,11 @@ DEF KRIS EQU __trainer_class__
 	const EXECUTIVEM_4
 	const EXECUTIVEM_5
 	const EXECUTIVEM_6
+	const EXECUTIVEM_7
+	const EXECUTIVEM_8
+	const EXECUTIVEM_9
+	const EXECUTIVEM_10
+	const EXECUTIVEM_11
 
 	trainerclass PSYCHIC_T ; 34
 	const NATHAN
@@ -639,6 +651,7 @@ DEF KRIS EQU __trainer_class__
 	trainerclass EXECUTIVEF ; 37
 	const EXECUTIVEF_1
 	const EXECUTIVEF_2
+	const EXECUTIVEF_3
 
 	trainerclass SAGE ; 38
 	const CHOW
@@ -733,5 +746,6 @@ DEF KRIS EQU __trainer_class__
 	trainerclass MYSTICALMAN ; 43
 	const EUSINE
 	const EUSINE_2
+	const EUSINE_3
 
 DEF NUM_TRAINER_CLASSES EQU __trainer_class__ - 1
